@@ -1,0 +1,103 @@
+﻿@*@model Ais.Internal.Dcm.Web.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}*@
+
+@*<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Use this form to enter your user name and password.</h2>
+</hgroup>
+
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
+
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>
+        </ol>
+        <input type="submit" value="Log in" />
+    </fieldset>
+    <p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>
+}*@
+
+
+
+<div class="container">
+    <legend>Login</legend>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="span6">
+                <div class="area">
+                    <form class="form-horizontal">
+                        <div class="heading">
+                            <h4 class="form-heading">Sign In</h4>
+                        </div>
+                        <br />
+                        <div class="control-group">
+                            @*<label class="control-label" for="inputUsername">Username</label>*@
+                            @*<div class="controls">*@
+                            <input type="text" id="inputUsername" placeholder="User Name">
+                            @*</div>*@
+                        </div>
+                        <div class="control-group">
+                            @*<label class="control-label" for="inputPassword">Password</label>*@
+                            @*<div class="controls">*@
+                            <input type="password" id="inputPassword" placeholder="Password">
+                            @*</div>*@
+                        </div>
+                        @*<div class="control-group">
+                                <div class="controls">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Keep me signed in   ¦
+                                            <a href="#" class="btn btn-link">Forgot my password</a>
+                                </label>
+                            </div>*@
+                        <div class="control-group">
+                            <button type="submit" class="btn btn-success">Sign In</button>
+                            @*<button type="button" class="btn">Help</button>*@
+                            @*</div>*@
+                        </div>
+                        @*<div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Access Denied!</strong> Please provide valid authorization.
+                            </div>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /container -->
+<div id="divResult"></div>
+<script>
+    var apiUrl = '../api/Account/Login';
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: '../api/Account/Login',
+            data: null,
+            dataType: "application/json",
+            success: function () { $("#divResult").html(data); }
+        });
+    });
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+}

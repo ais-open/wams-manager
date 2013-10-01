@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script src="../Scripts/script-loader.js"></script>
+    
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            jQuery.support.cors = true;
+            $("#error").hide();
+            checkForUserAdmin();
+            checkForUserLoggedIn();
+            bindSignOut();
+
+        });
+
+        $(document).ready(function () {
+            fetchUsers(5, 1);
+        });
+
+        function fetchUsers(pageSize, pageNumber) {
+            $.getJSON("../api/Account/GetAllUsers", { pageSize: pageSize, pageNumber: pageNumber })
+              .done(function (data) {
+                  $("#userTable").find("tr:gt(0)").remove();
+                  $(data.Users).each(function (index, ele) {
+
+                      var row = createRow(ele);
+                      $("#userTable").append(row);
+                  });
+                  // fix prev and next button
+                  fixNavigationButtons(data);
+              });
+        }
+        function fixNavigationButtons(data) {
+
+            if (isMoreDataPresent(data)) {
+                // more records, enable next button
+                setButton("#next", data.PageNumber+1, data.PageSize, true);
+                
+            }
+            else {
+                // no more records, so disable next button
+                setButton("#next", -1, data.PageSize, false);
+            }
+
+            if (data.PageNumber > 1) {
+                setButton("#prev", data.PageNumber-1, data.PageSize, true);
+            }
+            else {
+                // no more prev records, so disable next button
+                setButton("#prev", -1, data.PageSize, false);
+            }
+        }
+
+        function setButton(selector, pageNumber, pageSize, isEnable) {
+
+            if (isEnable) {
+                $(selector).removeAttr("disabled");
+                $(selector).unbind("click").click(function (event) {
+                    
+                    fetchUsers(pageSize, pageNumber);
+                });
+            }
+            else {
+                $(selector).attr("disabled", "disabled");
+            }
+        }
+        function isMoreDataPresent(data)
+        {
+            return data.PageSize == data.TotalUsers;
+        }
+        function createRow(ele) {
+            var disabled = "";
+            if (ele.EditNotAllowed) {
+                disabled = "disabled='disabled'";
+            }
+            var tr = $("<tr><td>" + htmlDecode(ele.Username) + "</td><td>" + ele.IsAdmin + "<td>"+getRoleButton(ele)+" "+getDeleteUserButton(ele)+" </td></tr>");
+            return $(tr);
+        }
+
+        function getRoleButton(ele) {
+            if (ele.EditNotAllowed) {
+                return "";
+            }
+           return "<input class='btn btn-info' type='Button' onclick=\"changeRole('" + htmlDecode(ele.Username) + "','" + !ele.IsAdmin + "')\"" + "' value='" + getButtonText(ele.IsAdmin) + "'/>"
+        }
+
+        function getDeleteUserButton(ele)
+        {
+            if (ele.EditNotAllowed) {
+                return "";
+            }
+            return "<input class='btn btn-danger' type='Button' onclick=\"deleteUser('" + ele.Username + "')\" value='Delete User'/>";
+        }
+        function getButtonText(isAdmin) {
+            var text = "";
+            if (isAdmin) {
+                text = "Revoke Admin rights";
+            }
+            else {
+                text = "Assign Admin rights"
+            }
+            return text;
+        }
+        function changeRole(username, makeAdmin) {
+            
+            if (confirm('Are you sure you want to change role for user account ' + username)) {
+                jQuery.support.cors = true;
+                $.getJSON("../api/Account/ChangeRole", { userName: htmlEncode(username), makeAdmin: makeAdmin }).done(function (data) {
+
+                    var message = "Successfully changed the Role.";
+                    if (!data) {
+                        message = "Failed to change the role.";
+                    }
+                    $.gritter.add({
+                        title: 'Information!',
+                        text: message,
+                        sticky: false,
+                        time: 5000
+                    });
+                    document.location.reload();
+                });
+            }
+        }
+
+        function deleteUser(username) {
+            if (confirm('Are you sure you want to delete user account ' + username)) {
+                jQuery.support.cors = true;
+                $.getJSON("../api/Account/DeleteUser", { userName: htmlEncode(username) }).done(function (data) {
+                    var message = "User deleted.";
+                    if (!data) {
+                        message = "Failed to delete the user.";
+                    }
+                    $.gritter.add({
+                        title: 'Information!',
+                        text: message,
+                        sticky: false,
+                        time: 5000
+                    });
+                    document.location.reload();
+
+                });
+            }
+        }
+
+    </script>
+    <script src="../Scripts/header.js"></script>
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <h2>User Management</h2>
+                <table id="userTable" class="table table-striped table-bordered">
+                    <tr><th>User name</th><th>Has Admin Privilege</th><th></th></tr>
+                </table>
+                <ul class="pager">
+                  <li><button type="button" id="prev"><i class="icon-chevron-left"></i></button></li>
+                  <li><button type="button" id="next"><i class="icon-chevron-right"></i></button></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../Scripts/Footer.js"></script>
+    
+
+</body>
+</html>

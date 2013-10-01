@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Ais.Internal.Dcm.ModernUIV2.Tabs.Viewer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300">
+
+    <DockPanel>
+        <TextBlock x:Name="noPreviewTextBlock" Text="Please Visit Output Tab and Select a Media to Preview" HorizontalAlignment="Center" FontSize="24" DockPanel.Dock="Top" Visibility="Visible"/>
+        <WebBrowser DockPanel.Dock="Top" x:Name="webBrowser" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="550" Visibility="Collapsed"/>
+    </DockPanel>
+</UserControl>

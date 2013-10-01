@@ -1,0 +1,73 @@
+﻿<Page x:Class="Ais.Internal.Dcm.ModernUIV2.Pages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="900"
+	Title="Home">
+
+    <!-- MAIN GRID-->
+    <Grid ShowGridLines="True">
+        <!-- GRID: Container for-->
+        <Grid x:Name="AssetsGrid" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Style="{StaticResource ResourceKey=WAMSLogoStyle}" ></Image>
+            <Button Grid.Column="1"  Click="Display_About" Style="{StaticResource ResourceKey=AboutButtonStyle}" />
+
+            <Separator Grid.Row="1" Background="#9EA7B3" Height="4" Grid.ColumnSpan="2"></Separator>
+            <!-- START: BREAD CRUMB -->
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Left" Margin="0,5">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button Content="HOME" Margin="0,0,5,0" FontFamily="Segoe UI Semibold" FontSize="14" Foreground="#41b1e7" Style="{StaticResource Link}" Click="NavigateToHome"/>
+                    <TextBlock Padding="3" Margin="0,0,5,0" FontFamily="Segoe UI Semibold" FontSize="14" Foreground="#9EA7B3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path Fill="LightSlateGray"  Data="M 10,0 L 20,10 L 10,20 L 10,0" Height="10" Stretch="Fill" Width="5"/>
+                    </TextBlock>
+                    <TextBlock  Text="COLLECTION" FontFamily="Segoe UI Semibold" FontSize="14" Foreground="#9EA7B3" ></TextBlock>
+
+                </StackPanel>
+                <TextBlock  Text="{Binding Path=MediaServiceFriendlyName, Mode=OneWay}" FontFamily="Segoe UI Semibold" FontSize="18" Foreground="#323A45" Margin="2,0,0,2" VerticalAlignment="Top"></TextBlock>
+            </StackPanel>
+            <!-- END: BREAD CRUMB -->
+            
+            <!-- START: DELETE ALBUM/ASSET BUTTON-->
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="40" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
+             
+                <Button x:Name="ButtonDeleteAsset" Content="Delete Media Container" IsEnabled="False" Margin="2" Visibility="Collapsed"/>
+
+            </StackPanel>
+            <!-- END: DELETE ALBUM/ASSET BUTTON-->
+            <ListBox  Style="{StaticResource ResourceKey=AlbumListStyle}"
+                      ItemContainerStyle="{Binding Source={StaticResource ResourceKey=NoChromeListBoxItem}}"
+                      Grid.Row="3" Grid.ColumnSpan="2" 
+                      ItemsSource="{Binding Path=AssetList}" SelectionChanged="ListBox_SelectionChanged" />
+
+            <Button Style="{StaticResource ResourceKey=RefreshButtonStyle}" Grid.Row="4" Grid.ColumnSpan="2"  Click="RefreshAsset_Click">
+              
+            </Button>
+            <Button Style="{StaticResource ResourceKey=AddAlbumButtonStyle}"   Grid.Row="4" Grid.ColumnSpan="2" Click="ButtonAddAsset_Click"/>
+        </Grid>
+
+
+
+        <Grid x:Name="LoadingAssetsGrid" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ProgressBar Grid.Row="0" VerticalAlignment="Bottom" IsIndeterminate="True"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource Heading1}" VerticalAlignment="Top" TextAlignment="Center" Text="Fetching data. Please wait."/>
+        </Grid>
+    </Grid>
+</Page>

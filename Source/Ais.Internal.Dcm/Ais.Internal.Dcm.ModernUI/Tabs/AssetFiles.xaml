@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Ais.Internal.Dcm.ModernUI.Tabs.AssetFiles"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+               xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" x:Name="AssetFilesGrid" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Left" Text="{Binding Path=SelectedAsset.Name}" FontSize="20" FontWeight="UltraBold" Width="200" Margin="5"/>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button BorderThickness="1" Margin="5"  Cursor="Hand" ClickMode="Press" Click="AddNew_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border BorderBrush="Black" BorderThickness="1"  >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image  Margin="10,10,0,10" Source="../Images/add.png" HorizontalAlignment="Left" OpacityMask="#FF322F2F"></Image>
+                                        <TextBlock Text="Add New" VerticalAlignment="Center" Margin="5"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button BorderThickness="1" Margin="5"  Cursor="Hand" ClickMode="Press" Click="MakePrimary_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border BorderBrush="Black" BorderThickness="1"  >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image  Margin="10,10,0,10" Source="../Images/key.png" HorizontalAlignment="Left" OpacityMask="#FF322F2F"></Image>
+                                        <TextBlock Text="Make Primary" VerticalAlignment="Center" Margin="5"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button BorderThickness="1" Grid.Column="3" Margin="5" Cursor="Hand" HorizontalAlignment="Left" ClickMode="Press" Click="Reload_Files">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border BorderBrush="Black" BorderThickness="1"  >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image  Margin="10,10,0,10" Source="../Images/refresh.png" HorizontalAlignment="Left" OpacityMask="#FF322F2F"></Image>
+                                        <TextBlock Text="Refresh" VerticalAlignment="Center" Margin="5"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+            </Grid>
+            <DataGrid Grid.Row="1" VerticalAlignment="Top" Width="Auto" GridLinesVisibility="All" BorderBrush="Gainsboro" BorderThickness="1"
+                              HeadersVisibility="All" HorizontalAlignment="Stretch" 
+                              ItemsSource="{Binding AssetFileList}" AutoGenerateColumns="False" 
+                              CanUserReorderColumns="False" SelectionMode="Single" 
+                              SelectionUnit="FullRow" SelectedItem="{Binding Path=SelectedAssetFile, Mode=TwoWay}" 
+                              CanUserAddRows="False" RowDetailsVisibilityMode="Collapsed" Margin="5">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.RowHeaderStyle>
+                    <Style TargetType="DataGridRowHeader">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                    </Style>
+                </DataGrid.RowHeaderStyle>
+
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn Header="File Name" Binding="{Binding Path=Name}" IsReadOnly="True" MinWidth="400" Width="3*"></DataGridTextColumn>-->
+                    <DataGridTemplateColumn Header="File Name" IsReadOnly="True" MinWidth="400" Width="3*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}" TextWrapping="WrapWithOverflow"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="File Size" Binding="{Binding Path=ContentFileSize}" IsReadOnly="True" MaxWidth="150" Width="2*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Created Date" Binding="{Binding Path=Created}" IsReadOnly="True" MaxWidth="150" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Last Modified Date" Binding="{Binding Path=LastModified}" IsReadOnly="True" MaxWidth="180" Width="3*"></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="Primary" Binding="{Binding Path=IsPrimary, Mode=TwoWay}" IsReadOnly="True" MaxWidth="80" Width="1*"></DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Left" Text="{Binding Path=UploadStatus}" Foreground="Green" Width="250" Margin="50,20,0,0" />
+        </Grid>
+        <Control x:Name="loading" Grid.Row="0" VerticalAlignment="Center" Template="{StaticResource loadingAnimation}" Visibility="Visible"/>
+    </Grid>
+</UserControl>
