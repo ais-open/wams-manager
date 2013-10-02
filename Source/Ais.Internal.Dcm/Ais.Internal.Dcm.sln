@@ -21,35 +21,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.lib", "External.lib", "{BB13EB59-B50E-4EFA-8306-CF0FD4B2A9BD}"
 	ProjectSection(SolutionItems) = preProject
 		Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll = Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll
+		Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.dll = Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+		Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.xml = Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Clickonce", "Ais.Internal.Dcm.Clickonce\Ais.Internal.Dcm.Clickonce.csproj", "{33105088-098B-4317-A2E8-304F0CED5C95}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ais-dcm.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Ais.Internal.Dcm.Business\\Ais.Internal.Dcm.Business.csproj
-		SccProjectName1 = Ais.Internal.Dcm.Business
-		SccLocalPath1 = Ais.Internal.Dcm.Business
-		SccProjectUniqueName2 = Ais.Internal.Dcm.WebApi.Tests\\Ais.Internal.Dcm.Web.Tests.csproj
-		SccProjectName2 = Ais.Internal.Dcm.WebApi.Tests
-		SccLocalPath2 = Ais.Internal.Dcm.WebApi.Tests
-		SccProjectUniqueName3 = Ais.Internal.Dcm.ModernUIV2\\Ais.Internal.Dcm.ModernUIV2.csproj
-		SccProjectName3 = Ais.Internal.Dcm.ModernUIV2
-		SccLocalPath3 = Ais.Internal.Dcm.ModernUIV2
-		SccProjectUniqueName4 = Ais.Internal.Dcm.MetadataService\\Ais.Internal.Dcm.MetadataService.csproj
-		SccProjectName4 = Ais.Internal.Dcm.MetadataService
-		SccLocalPath4 = Ais.Internal.Dcm.MetadataService
-		SccProjectUniqueName5 = Ais.Internal.Dcm.WebV2\\Ais.Internal.Dcm.Webv2.csproj
-		SccProjectName5 = Ais.Internal.Dcm.WebV2
-		SccLocalPath5 = Ais.Internal.Dcm.WebV2
-		SccProjectUniqueName6 = Ais.Internal.Dcm.Clickonce\\Ais.Internal.Dcm.Clickonce.csproj
-		SccProjectName6 = Ais.Internal.Dcm.Clickonce
-		SccLocalPath6 = Ais.Internal.Dcm.Clickonce
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
