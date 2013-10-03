@@ -21,10 +21,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.lib", "External.lib", "{BB13EB59-B50E-4EFA-8306-CF0FD4B2A9BD}"
 	ProjectSection(SolutionItems) = preProject
 		Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll = Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll
-		Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.dll = Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.dll
-		Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.xml = Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.Storage.xml
-		Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.StorageClient.dll = Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.StorageClient.dll
-		Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.StorageClient.xml = Ais.Internal.Dcm.MetadataService\bin\Debug\Microsoft.WindowsAzure.StorageClient.xml
+		External.lib\Microsoft.WindowsAzure.Storage.dll = External.lib\Microsoft.WindowsAzure.Storage.dll
+		External.lib\Microsoft.WindowsAzure.StorageClient.dll = External.lib\Microsoft.WindowsAzure.StorageClient.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Clickonce", "Ais.Internal.Dcm.Clickonce\Ais.Internal.Dcm.Clickonce.csproj", "{33105088-098B-4317-A2E8-304F0CED5C95}"
