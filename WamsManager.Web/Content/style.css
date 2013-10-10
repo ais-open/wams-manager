@@ -1,0 +1,182 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 60px;
+    background-color: #323a45;
+    color: #fff;
+    text-align: center;
+}
+
+    #footer a,
+    #footer a:visited {
+        color: #14b9d6;
+    }
+
+        #footer a:hover {
+            color: #14b9d6;
+        }
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+    margin-bottom: 50px;
+}
+
+    .container .credit {
+        margin: 20px 0;
+    }
+
+.form-invitation button,
+.form-set-up button {
+    float: right;
+}
+
+.form-invitation button {
+    min-width: 20%;
+    margin-left: 2%;
+}
+
+.form-invitation input[type="text"] {
+    width: 77%;
+}
+
+@media (max-width: 767px) {
+    .form-invitation button {
+        min-width: 22%;
+        margin-left: 2%;
+    }
+
+    .form-invitation input[type="text"] {
+        width: 75%;
+    }
+}
+
+@media (max-width: 610px) {
+    .form-invitation input[type="text"] {
+        width: 69%;
+    }
+}
+
+.form-set-up h2, h3 {
+    color: #1fbba6;
+}
+
+.form-set-up label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-set-up div {
+    margin: 20px 0;
+}
+
+    .form-set-up div {
+        margin-bottom: 10px;
+    }
+
+.form-set-up .one-third {
+    width: 33%;
+}
+
+.form-set-up .two-thirds {
+    width: 66%;
+}
+
+.success .icon-message {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url('../Images/icon-success.png') no-repeat;
+    vertical-align: middle;
+    margin: -7px 8px 0;
+}
+
+.success p:after {
+    content: "Congrats! That URL is available.";
+}
+
+.error .icon-message {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url('../Images/icon-error.png') no-repeat;
+    vertical-align: middle;
+    margin: -7px 8px 0;
+}
+
+.error p:after {
+    content: "That URL is not available. Please try again.";
+    color: #c0392b;
+}
+
+.error input[type="text"] {
+    border: 1px solid #c0392b;
+}
+
+.erroricon {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: rgb(251, 5, 5);
+}
+
+.loadingcontainer {
+    position: absolute;
+    margin-top: auto;
+    margin-left: auto;
+    width: auto;
+    height: 200px;
+    text-align: center;
+    vertical-align: central;
+ }
+
+/*LOADING MESSAGE*/
+.loading {
+    /*max-width: 500px;*/
+    width:90%;
+    height: 200px;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.loading p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.tenantProvisionerContainer {
+    /*color:blue;*/ 
+    font-size:22px;
+    width:90%;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+ }

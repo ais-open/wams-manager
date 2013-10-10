@@ -1,0 +1,157 @@
+﻿@model WamsManager.Web.Models.CustomerInfo
+@{
+    ViewBag.Title = "CustomerInfo";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>WAMS Manager Website Set-up</title>
+
+    <!-- Bootstrap core CSS -->
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/style.css")
+    @Scripts.Render("~/bundles/jquery")
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../Scripts/html5shiv.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            getSiteUrl = '@Url.Content("~/Home/GetUrl")';
+            evaluationId = '@ViewBag.EvaluationId';
+
+            $('#password2').keyup(function () {
+                var pass1 = document.getElementById("password1");
+                var pass2 = document.getElementById("password2");
+                var confirmMessage = document.getElementById("confirmMessage");
+                var submitBtn = document.getElementById("submitBtnId");
+
+                if (pass1.value == pass2.value) {
+                    confirmMessage.innerHTML = "";
+                    submitBtn.disabled = false;
+                }
+                else {
+                    confirmMessage.innerHTML = "Passwords Do Not Match!";
+                    submitBtn.disabled = true;
+                }
+
+                return false;
+            });
+
+            $('#submitButton').click(function () {
+                $('#loading').show();
+                $('#infoDiv').delay(1000).fadeOut();
+                window.scrollTo(0, 0);
+                timerId = window.setInterval(isSiteProvisioned, 120000);
+            });
+
+            function isSiteProvisioned() {
+                $.getJSON(getSiteUrl, { evaluationId: evaluationId })
+                .done(function (url) {
+                    if (url) {
+                        $('#loading').html("<p>Tenant provisioning completed! <br/> Please click <a href='" + url + "'>here</a> to visit the website.</p>");
+                        window.clearInterval(timerId);
+                    }
+                })
+                .fail(function (jqxhr, textStatus, error) {
+                    var errMsg = textStatus + ", " + error;
+                    $('#loading').html("<p>Request Failed. <br/>" + errMsg + "</p>");
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        @using (Html.BeginForm("CustomerInfo", "Home"))
+        {
+            <!-- Begin page content -->
+            <div class="container" id="infoDiv">
+                <div class="page-header">
+                    <h1>Set-up Your Website</h1>
+                </div>
+                <p class="lead">We'll need some details from you to set everything up:</p>
+
+                <div class="success">
+                    <label>Create your site name</label>
+                    <input type="text" class="input-block-level one-third" placeholder="Ex: MyVideos" name="sitePrefix" required="required">.azurewebsites.net
+                </div>
+                <div>
+                    <h2>Account Details</h2>
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" class="input-block-level two-thirds" placeholder="First Name" name="firstName" required>
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" class="input-block-level two-thirds" placeholder="Last Name" name="lastName" required>
+                    </div>
+                    <div>
+                        <label>Organization</label>
+                        <input type="text" class="input-block-level two-thirds" placeholder="Organization Name" name="custOrganization">
+                    </div>
+                    <div>
+                        <label>Email Address</label>
+                        <input type="text" class="input-block-level two-thirds" placeholder="Email Address" name="custEmail">
+                    </div>
+                    <div>
+                        <label>Create a Username</label>
+                        <input type="text" class="input-block-level two-thirds" placeholder="Username" name="username">
+                    </div>
+                    <div id="passDiv">
+                        <label>Create a Password</label>
+                        <input type="text" class="input-block-level two-thirds" placeholder="Password" name="password" id="password1">
+                        <input type="text" class="input-block-level two-thirds" placeholder="Password Confirmation" name="passwordConfirmation" id="password2" />
+                        <span id="confirmMessage" class="erroricon"></span>
+                    </div>
+                </div>
+                <div>
+                    <h2>Azure Storage Information</h2>
+                    <div>
+                        <label>Azure Storage Account Name</label>
+                        <input type="text" class="input-block-level two-thirds" name="azureStorageAcctName" required>
+                    </div>
+                    <div>
+                        <label>Primary Key</label>
+                        <input type="text" class="input-block-level two-thirds" name="azureStoragePrimaryKey" required>
+                    </div>
+                </div>
+
+                <button class="btn btn-large btn-primary right" type="submit" id="submitButton" >Submit</button>
+
+            </div>
+        }
+
+        <div id="loading" style="display: none;" class="loadingcontainer">
+            <p>
+                Provisioning site template. This might take few minutes ...
+            </p>
+            <img src="~/Images/preloader.gif" alt="Please Wait" />
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted credit">Copyright &#169; 2013 <a href="http://appliedis.com">Applied Information Sciences, Inc.</a></p>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>
