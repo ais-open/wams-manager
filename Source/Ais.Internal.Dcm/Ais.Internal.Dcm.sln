@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Business", "Ais.Internal.Dcm.Business\Ais.Internal.Dcm.Business.csproj", "{816B134B-DE0D-4EA6-90BF-DE0811F6C02C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8734BC0C-AEC7-427E-AD2A-6AB7C9A4C1E7}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Web.Tests", "Ais.Internal.Dcm.WebApi.Tests\Ais.Internal.Dcm.Web.Tests.csproj", "{84CFD6D9-3A0E-43F1-802D-FE1006A60051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.ModernUIV2", "Ais.Internal.Dcm.ModernUIV2\Ais.Internal.Dcm.ModernUIV2.csproj", "{C29EC845-D9C0-4FAB-9C36-765508860FBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.MetadataService", "Ais.Internal.Dcm.MetadataService\Ais.Internal.Dcm.MetadataService.csproj", "{8E7B79FF-DF84-4BC2-8087-4E8E7173FBAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Webv2", "Ais.Internal.Dcm.WebV2\Ais.Internal.Dcm.Webv2.csproj", "{9B6F578C-D03C-48B4-A0F4-C193D9381591}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.lib", "External.lib", "{BB13EB59-B50E-4EFA-8306-CF0FD4B2A9BD}"
+	ProjectSection(SolutionItems) = preProject
+		Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll = Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll
+		External.lib\Microsoft.WindowsAzure.Storage.dll = External.lib\Microsoft.WindowsAzure.Storage.dll
+		External.lib\Microsoft.WindowsAzure.StorageClient.dll = External.lib\Microsoft.WindowsAzure.StorageClient.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Clickonce", "Ais.Internal.Dcm.Clickonce\Ais.Internal.Dcm.Clickonce.csproj", "{33105088-098B-4317-A2E8-304F0CED5C95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{816B134B-DE0D-4EA6-90BF-DE0811F6C02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{816B134B-DE0D-4EA6-90BF-DE0811F6C02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{816B134B-DE0D-4EA6-90BF-DE0811F6C02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{816B134B-DE0D-4EA6-90BF-DE0811F6C02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CFD6D9-3A0E-43F1-802D-FE1006A60051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CFD6D9-3A0E-43F1-802D-FE1006A60051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CFD6D9-3A0E-43F1-802D-FE1006A60051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CFD6D9-3A0E-43F1-802D-FE1006A60051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29EC845-D9C0-4FAB-9C36-765508860FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29EC845-D9C0-4FAB-9C36-765508860FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29EC845-D9C0-4FAB-9C36-765508860FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29EC845-D9C0-4FAB-9C36-765508860FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E7B79FF-DF84-4BC2-8087-4E8E7173FBAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7B79FF-DF84-4BC2-8087-4E8E7173FBAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7B79FF-DF84-4BC2-8087-4E8E7173FBAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7B79FF-DF84-4BC2-8087-4E8E7173FBAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6F578C-D03C-48B4-A0F4-C193D9381591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6F578C-D03C-48B4-A0F4-C193D9381591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6F578C-D03C-48B4-A0F4-C193D9381591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6F578C-D03C-48B4-A0F4-C193D9381591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33105088-098B-4317-A2E8-304F0CED5C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33105088-098B-4317-A2E8-304F0CED5C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33105088-098B-4317-A2E8-304F0CED5C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33105088-098B-4317-A2E8-304F0CED5C95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

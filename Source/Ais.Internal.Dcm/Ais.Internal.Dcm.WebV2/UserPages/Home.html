@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Profile Page</title>
+    <script src="../Scripts/script-loader.js"></script>
+
+
+</head>
+<body>
+    <script src="../Scripts/header.js"> </script>
+
+    <div class="row-fluid" style="margin-bottom:50px">
+        <div><i class="icon-user" style="font-size: 80px; margin: 20px; background-color: #d3d3d3; width: 60px; height: 60px; padding: 20px;"></i></div>
+        <div class="jumbotron" style="margin-top: -140px;">
+            <div class="container">
+                <p>Welcome to Windows Azure Media Service Management tool portal.</p>
+                <p>
+                    <label>Please click the button to download and install WAMS tool </label>
+                </p>
+                <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="../Scripts/footer.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            jQuery.support.cors = true;
+            checkForUserAdmin();
+            checkForUserLoggedIn();
+            bindSignOut();
+            $("li#homeLink").addClass('active');
+        });
+    </script>
+</body>
+</html>
