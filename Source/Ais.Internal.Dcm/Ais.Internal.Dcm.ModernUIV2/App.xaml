@@ -234,7 +234,7 @@
                                     <Image Stretch="Uniform"  Source="{Binding Path=DefaultThumbnailUrl}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                                 </Border>
 
-                                <Border Grid.Row="0" Grid.Column="1" Background="#323A45" Margin="10,10,0,0">
+                                <Border Grid.Row="0" Grid.Column="1" Background="#323A45" Margin="10,0,0,0">
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="ALBUM" Margin="10,0,0,0" Foreground="#9EA7B3" FontFamily="Segoe UI Semibold" FontSize="14"></TextBlock>
                                         <TextBlock VerticalAlignment="Top" Text="{Binding Path=Name}" Width="150" Margin="10,0,0,0"  HorizontalAlignment="Left" Foreground="#FFF" FontFamily="Segoe UI Semibold" FontSize="14" TextWrapping="Wrap"/>
