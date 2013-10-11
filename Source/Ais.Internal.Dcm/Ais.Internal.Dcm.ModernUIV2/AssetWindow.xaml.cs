@@ -4,6 +4,7 @@ using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.ComponentModel;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -83,7 +84,7 @@ namespace Ais.Internal.Dcm.ModernUIV2
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(txtAssetName.Text))
+                if (!string.IsNullOrWhiteSpace(txtAssetName.Text) && IsValidAssetName(txtAssetName.Text))
                 {
                     OkEnabled = false;
                     LoadingAssetsGrid.Visibility = Visibility.Visible;
@@ -97,26 +98,36 @@ namespace Ais.Internal.Dcm.ModernUIV2
                     if (Asset != null)
                     {
                         OnAssetCreated();
-                       await Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                                                                   new Action(
-                                                                       () =>
-                                                                       {
-                                                                           this.LoadingAssetsGrid.Visibility =
-                                                                               Visibility.Collapsed;
-                                                                           //SaveGrid.Visibility = Visibility.Visible;
-                                                                           OkEnabled = true;
-                                                                           this.Close();
-                                                                       }));
+                        await Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                                                                    new Action(
+                                                                        () =>
+                                                                        {
+                                                                            this.LoadingAssetsGrid.Visibility =
+                                                                                Visibility.Collapsed;
+                                                                            //SaveGrid.Visibility = Visibility.Visible;
+                                                                            OkEnabled = true;
+                                                                            this.Close();
+                                                                        }));
 
 
 
                     }
+                }
+                else
+                {
+                    ModernDialog.ShowMessage("Invalid Asset Name. Only Alphanumeric names are accepted.", "Error",
+                                                 MessageBoxButton.OK);
                 }
             }
             catch (Exception ex)
             {
                 UIHelper.HandlerException(ex);
             }
+        }
+
+        private bool IsValidAssetName(string p)
+        {
+           return  Regex.IsMatch(p, "^[a-zA-Z0-9_]+$");
         }
 
         private async Task<AssetInfo> CreateAsset(string assetName)

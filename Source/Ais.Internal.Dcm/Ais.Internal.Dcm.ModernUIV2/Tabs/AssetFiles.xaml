@@ -26,7 +26,8 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="30"></RowDefinition>
@@ -56,39 +57,39 @@
             </Grid>
 
             <!-- File Selection Region -->
-            <Grid Grid.Row="1" Margin="5,0,0,0">
+            <Grid Grid.Row="1" Margin="5,0,0,0" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="CHOOSE VIDEO FILE TO PROCESS" Style="{StaticResource FileHeaderStyle}" Margin="0,0,0,0"/>
+                <TextBlock Text="CHOOSE VIDEO FILE TO PROCESS" Style="{StaticResource FileHeaderStyle}" Margin="0,15,0,30" Grid.RowSpan="2"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <TextBox Width="370" IsReadOnly="True" Text="{Binding LocalFilePath}" Margin="0,5,5,5"></TextBox>
-                    <Button HorizontalAlignment="Left" HorizontalContentAlignment="Center" Content="FROM YOUR COMPUTER" Margin="5" Padding="5" Click="LocalUpload_OnClick" Style="{StaticResource ButtonSizeStyle}" Foreground="black" Background="#9ea7b3"></Button>
-                    <TextBlock Text="OR" FontFamily="Segoe UI Semibold" FontSize="10" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center"/>
-                    <Button HorizontalAlignment="Right" HorizontalContentAlignment="Center" Content="FROM YOUR AZURE ACCOUNT" Margin="5" Padding="5" Click="CloudUpload_Click" Style="{StaticResource ButtonSizeStyle}" Foreground="#FFF" Background="#14B9D6"></Button>
+                    <TextBox Width="370" IsReadOnly="True" Text="{Binding LocalFilePath}" Margin="0,21,5,-11"></TextBox>
+                    <Button HorizontalAlignment="Left" HorizontalContentAlignment="Center" Content="FROM YOUR COMPUTER" Margin="5,21,5,-11" Padding="5" Click="LocalUpload_OnClick" Style="{StaticResource ButtonSizeStyle}" Foreground="#323a45" Background="#9ea7b3"></Button>
+                    <TextBlock Text="OR" FontFamily="Segoe UI Semibold" FontSize="10" HorizontalAlignment="Right" Margin="5,30,5,-2" VerticalAlignment="Center"/>
+                    <Button HorizontalAlignment="Right" HorizontalContentAlignment="Center" Content="FROM YOUR AZURE ACCOUNT" Margin="5,21,5,-11" Padding="5" Click="CloudUpload_Click" Style="{StaticResource ButtonSizeStyle}" Foreground="#FFF" Background="#14B9D6"></Button>
                 </StackPanel>
             </Grid>
 
             <!-- Output Encoding Type Selection Region -->
-            <Grid Grid.Row="2" x:Name="SelectFileGrid" Margin="5,0,0,0">
+            <Grid Grid.Row="3" x:Name="SelectFileGrid" Margin="5,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Margin="0,-6,0,6">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="43*"/>
+                        <RowDefinition Height="143*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Margin="0,30,0,90" Grid.RowSpan="2">
                         <Separator Grid.Row="2" Background="#9EA7B3" Height="4"></Separator>
-                        <TextBlock Text="CHOOSE OUTPUT TYPES" Style="{StaticResource FileHeaderStyle}" Margin="0,2,0,0"></TextBlock>
-                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
-                            <TextBlock FontStyle="Italic" FontSize="10" Text="You may choose as many outputs types for each video as you like."></TextBlock>
-                            <TextBlock FontFamily="Segoe UI Regular" FontSize="10" Foreground="#14b9d6" Text="I don't see the output type i need listed below. Can it be added?" 
-                                   x:Name="texthelp" ToolTipService.PlacementTarget="{Binding ElementName=texthelp}">
+                        <TextBlock Text="CHOOSE OUTPUT TYPES" Style="{StaticResource FileHeaderStyle}" Margin="0,10,0,0"></TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="0,3,0,5">
+                            <TextBlock FontStyle="Italic" FontSize="10" Text="You may choose as many outputs types for each video as you like." Margin="0,0,0,0"></TextBlock>
+                            <TextBlock FontFamily="Segoe UI Regular" FontSize="10" Foreground="#14b9d6" Text="I don't see the output type I need listed below. Can it be added?" 
+                                   x:Name="texthelp" ToolTipService.PlacementTarget="{Binding ElementName=texthelp}" Margin="8,0,0,0">
                                 <TextBlock.ToolTip>
                                     <ToolTip Placement="Top" VerticalOffset="0" HorizontalOffset="50">
                                         <TextBlock Text="Please contact your Administrator to add a new output type."></TextBlock>
@@ -100,7 +101,7 @@
                     <Border Grid.Row="1" BorderThickness="0" BorderBrush="#FF2D89EF" CornerRadius="1" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <Grid HorizontalAlignment="Left" Grid.Row="2" Height="100">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-                                <ItemsControl x:Name="EncodingList" HorizontalAlignment="Left" ItemsSource="{Binding EncodingTypes}" ItemTemplate="{StaticResource EncodingDataTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                                <ItemsControl x:Name="EncodingList" HorizontalAlignment="Left" ItemsSource="{Binding EncodingTypes}" ItemTemplate="{StaticResource EncodingDataTemplate}" Margin="0,50,0,0" ScrollViewer.HorizontalScrollBarVisibility="Visible">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel Orientation="Horizontal" />
@@ -159,27 +160,27 @@
             </Grid>
 
             <!-- Tag Selection Region -->
-            <Grid Grid.Row="3" Margin="5,2,0,0">
+            <Grid Grid.Row="4" Margin="5,2,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="ADD DESCRIPTIVE TAGS" Style="{StaticResource FileHeaderStyle}"  Margin="0,0,0,0"/>
-                    <TextBlock Text="Seperate each tag by a comma" FontFamily="Segoe UI Italic" FontSize="10"  Margin="0"/>
+                    <TextBlock Text="ADD DESCRIPTIVE TAGS" Style="{StaticResource FileHeaderStyle}"  Margin="0,7,0,0"/>
+                    <TextBlock Text="Seperate each tag by a comma" FontFamily="Segoe UI Italic" FontSize="10"  Margin="0,2,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="panelTags">
                     <TextBox Width="200" Name="TextTags"
             local:TextBoxAutoComplete.WordAutoCompleteSource="{Binding Path=TagSource, Mode=TwoWay}"
-            local:TextBoxAutoComplete.WordAutoCompletePopup="{Binding ElementName=PopupTags}" Margin="0,5,5,5">
+            local:TextBoxAutoComplete.WordAutoCompletePopup="{Binding ElementName=PopupTags}" Margin="0,15,5,-5">
                     </TextBox>
                     <Popup Name="PopupTags" IsOpen="False" Placement="Bottom" PlacementTarget="{Binding ElementName=TextTags}">
                         <Grid>
                             <ListBox Name="PART_WordsHost" />
                         </Grid>
                     </Popup>
-                    <Button HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="30" Content="ADD TAGS" Margin="5" Padding="2" Style="{StaticResource ButtonSizeStyle}" Foreground="#FFF" Background="#9ea7b3" Click="AddTags_Click"></Button>
+                    <Button HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="30" Content="ADD TAGS" Margin="5,15,5,-5" Padding="2" Style="{StaticResource ButtonSizeStyle}" Foreground="#FFF" Background="#9ea7b3" Click="AddTags_Click"></Button>
                 </StackPanel>
                 <Grid Grid.Row="2">
                     <ListView ItemsSource="{Binding Path=TagList, Mode=TwoWay}">
@@ -209,14 +210,14 @@
             </Grid>
 
             <!-- Process Video Selection Region -->
-            <Grid Grid.Row="4" Margin="5,0,0,0">
+            <Grid Grid.Row="5" Margin="5,0,0,0">
                 <Button Margin="0" HorizontalAlignment="Right" Cursor="Hand" ClickMode="Press" IsEnabled="{Binding Path=ProcessEnabled, Mode=TwoWay}" Height="30"  Click="ProcessJob_Click">
                     <Button.Template>
                         <ControlTemplate>
                             <Border Background="#F27935">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image  Margin="5,10,0,10" Source="../Images/icons/icon-save.png" HorizontalAlignment="Left" OpacityMask="#FF322F2F" Width="15" Height="10"></Image>
-                                    <TextBlock Text="PROCESS VIDEO REEL" Foreground="#FFF" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" FontSize="10" Margin="0,5,5,5"></TextBlock>
+                                    <Image  Margin="8,10,0,10" Source="../Images/icons/icon-save.png" HorizontalAlignment="Left" OpacityMask="#FF322F2F" Width="15" Height="10"></Image>
+                                    <TextBlock Padding="0,0,5,0" Text="PROCESS VIDEO REEL" Foreground="#FFF" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" FontSize="10" Margin="0,5,5,5"></TextBlock>
                                 </StackPanel>
                             </Border>
                         </ControlTemplate>
@@ -225,17 +226,17 @@
             </Grid>
 
             <!-- Loading Screen Region -->
-            <Grid  Grid.Row="2" x:Name="loading" VerticalAlignment="Center" Height="45"  Visibility="Visible">
+            <Grid  Grid.Row="3" x:Name="loading" VerticalAlignment="Center" Height="46"  Visibility="Visible" Margin="0,63">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ProgressBar Grid.Row="0" VerticalAlignment="Bottom" IsIndeterminate="True"/>
+                <ProgressBar VerticalAlignment="Bottom" IsIndeterminate="True" Margin="0,0,0,3"/>
                 <TextBlock x:Name="WaitingControlMessage" Grid.Row="1" FontSize="16"  FontFamily="Segoe UI Semibold" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding WaitMessage, Mode=TwoWay}"/>
             </Grid>
 
             <!-- Upload status of selected video files Region -->
-            <DataGrid Grid.Row="5" Margin="5,5,0,0" BorderBrush="Gainsboro" BorderThickness="1" ColumnHeaderStyle="{StaticResource UploadStatusGridColumnHeaderStyle}" RowHeaderStyle="{StaticResource UploadStatusGridRowHeaderStyle}" VerticalAlignment="Top" Width="Auto" HeadersVisibility="All" HorizontalAlignment="Left" ItemsSource="{Binding UploadList, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" VerticalScrollBarVisibility="Visible">
+            <DataGrid Grid.Row="6" Margin="5,5,0,0" BorderBrush="Gainsboro" BorderThickness="1" ColumnHeaderStyle="{StaticResource UploadStatusGridColumnHeaderStyle}" RowHeaderStyle="{StaticResource UploadStatusGridRowHeaderStyle}" VerticalAlignment="Top" Width="895" HeadersVisibility="All" HorizontalAlignment="Left" ItemsSource="{Binding UploadList, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" VerticalScrollBarVisibility="Visible" Height="29">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="File Name" Width="1*" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>

@@ -32,19 +32,26 @@ namespace Ais.Internal.Dcm.Web.Filters
 
                 string username = decodedToken.Substring(0, decodedToken.IndexOf(":"));
                 string password = decodedToken.Substring(decodedToken.IndexOf(":") + 1);
-
-                if (Membership.ValidateUser(username, password))
+                //already authenticated, avoid look up to Membership table
+                if (!actionContext.Request.RequestUri.LocalPath.Contains("MediaServices") && !string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
                 {
-                    var identity = new GenericIdentity(username, "Basic");
-                    IPrincipal principal = new GenericPrincipal(identity, new string[] { "REST_CALLER" });
-                    Thread.CurrentPrincipal = principal;
-                    HttpContext.Current.User = principal;
                     base.OnActionExecuting(actionContext);
                 }
                 else
                 {
-                    loggerService.LogException("authorization failed:" + username + ":" + password, new Exception());
-                    actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
+                    if (Membership.ValidateUser(username, password))
+                    {
+                        var identity = new GenericIdentity(username, "Basic");
+                        IPrincipal principal = new GenericPrincipal(identity, new string[] { "REST_CALLER" });
+                        Thread.CurrentPrincipal = principal;
+                        HttpContext.Current.User = principal;
+                        base.OnActionExecuting(actionContext);
+                    }
+                    else
+                    {
+                        loggerService.LogException("authorization failed:" + username + ":" + password, new Exception());
+                        actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
+                    }
                 }
             }
         }

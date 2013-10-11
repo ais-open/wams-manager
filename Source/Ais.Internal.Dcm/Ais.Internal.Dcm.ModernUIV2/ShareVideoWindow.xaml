@@ -16,11 +16,11 @@
         </DataTemplate>
     </Window.Resources>
     <Canvas  Background="Transparent" Height="390" Width="390" Margin="20"  Name="RootLayout"  MouseDown="Grid_MouseDown">
-            <Path Fill="#dfdfdf" Data="M 0,10 L 0,20 L 0,250 L-15,260 L 0 270 L 0,390 L 470,390 L 470,10  L 0,10">
+        <Path Fill="#ededed" Data="M 0,10 L 0,20 L 0,250 L-15,260 L 0 270 L 0,390 L 470,390 L 470,10  L 0,10">
 
         </Path>
         <Grid>
-            <Border Grid.Row="0" Margin="0" Padding="5" BorderThickness="1">
+            <Border Grid.Row="0" Margin="0" Padding="15" BorderThickness="1">
                 <!--<Grid DataContext="{Binding Source={StaticResource ResourceKey=SharingData}}">-->
                 <Grid  >
                     <Grid.ColumnDefinitions>
@@ -81,19 +81,19 @@
                         </StackPanel>
 
 
-                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" Margin="4,0,4,0">
+                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" Margin="8,0,4,0">
                             <Button Content="Copy" Click="CopyEmbedTagToClipBoard"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Orientation="Vertical" Width="300">
-                            <TextBlock Text="Direct Stream / Download Url" Margin="0,5,0,5" FontWeight="SemiBold"/>
+                            <TextBlock Text="Direct Stream / Download Url" Margin="0,10,0,5" FontWeight="SemiBold"/>
                             <TextBlock Name="txtDownload" Background="White"  TextWrapping="Wrap" Height="100">
                                 <TextBlock.Text>
                                     <Binding Path="SelectedUrl"></Binding>
                                 </TextBlock.Text>
                             </TextBlock>
                         </StackPanel>
-                        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" Margin="4,0,4,0">
+                        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" Margin="8,0,4,0">
                             <Button Click="CopyDownloadURLToClipBoard" Content="Copy"/>
                         </StackPanel>
 

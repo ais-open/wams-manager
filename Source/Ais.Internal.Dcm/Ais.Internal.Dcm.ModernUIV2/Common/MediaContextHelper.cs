@@ -66,7 +66,7 @@ namespace Ais.Internal.Dcm.ModernUIV2
             AssetList = null;
             AssetFileList = null;
             ThumbnailUrls = null;
-            OutputUrls = null;
+            GroupedOutputs = null;
         }
         
     }

@@ -948,13 +948,23 @@ namespace Ais.Internal.Dcm.Web.Service
                         }
                     }
                 }
-
+                searchViewModel.NameForSearch = BuildSearchFriendlyString(searchViewModel);
                 searchService.InsertMediaHistory(searchViewModel);
             }
             catch (Exception exception)
             {
                 loggerService.LogException("Insert Service" + exception.ToString(), exception);
             }
+        }
+
+        private string BuildSearchFriendlyString(SearchResultViewModel viewModel)
+        {
+            return Clean(viewModel.CollectionName) + Clean(viewModel.FileName) + Clean(viewModel.MediaServiceName) + Clean(viewModel.TagsForSearch);
+        }
+
+        private string Clean(string value)
+        {
+            return value == null ? "" : value;
         }
 
         public List<Tag> GetTags(string mediaServiceName)

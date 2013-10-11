@@ -330,6 +330,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Images\aisLogo-white.png" />
+    <Content Include="Images\icon-facebook.jpg" />
+    <Content Include="Images\icon-linkedin.jpg" />
+    <Content Include="Images\icon-rss.jpg" />
+    <Content Include="Images\icon-twitter.jpg" />
+    <Content Include="Images\wams-mark.png" />
     <Content Include="Scripts\common-login.js" />
     <Content Include="Scripts\script-loader.js" />
     <Content Include="Scripts\header.js" />

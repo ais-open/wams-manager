@@ -19,7 +19,6 @@ namespace Ais.Internal.Dcm.Web.Controllers
         public AccountController(ILoggerService loggerService)
         {
             this._loggerService = loggerService;
-            this._loggerService.LogException("Sample Exception", new ArgumentException("Some went terribly wrong Jude"));
         }
 
         [HttpGet]

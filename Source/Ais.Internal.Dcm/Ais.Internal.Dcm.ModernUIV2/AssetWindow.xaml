@@ -31,7 +31,7 @@ Background="White">
                             <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="5,10,0,0"  Text="ADD ALBUM" FontSize="19" Foreground="White"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="12,10,0,0"  Text="ADD ALBUM" FontSize="19" Foreground="White"/>
                         <Button Margin="0,10,10,10"  Foreground="White" Background="#1fbba6" Grid.Column="1" HorizontalAlignment="Right" Click="Button_Click"  Style="{StaticResource SystemButton}" >
                             <Button.Content>
                                 <TextBlock Text="X" FontSize="14" Padding="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="19" Height="19" />
@@ -42,14 +42,14 @@ Background="White">
                 </StackPanel>
 
                 <!-- Label for Album Name-->
-                <TextBlock Text="Album Name" Grid.Row="1"  HorizontalAlignment="Left" Width="130" Margin="10" FontFamily="Segoe UI Regular" FontSize="18"
+                <TextBlock Text="Album Name" Grid.Row="1"  HorizontalAlignment="Left" Width="130" Margin="10,23,0,3" FontFamily="Segoe UI Regular" FontSize="18"
                    VerticalAlignment="Center"/>
                 <!-- Textbox for Album Name-->
-                <TextBox  x:Name="txtAssetName" Text="" FontSize="17" Grid.Row="2" Grid.Column="0" Width="328" Height="30" Margin="10" HorizontalAlignment="Right"></TextBox>
+                <TextBox  x:Name="txtAssetName" Text="" FontSize="17" Grid.Row="2" Grid.Column="0" Width="353" Height="30" Margin="0,15,15,15" HorizontalAlignment="Right"></TextBox>
                 
                 
                 <!-- Button Areas : Save Button -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3" Margin="0,5,0.2,0" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3" Margin="0,5,11,0" Grid.Column="1">
                     <!-- Save Button-->
                     <Button Height="34" Margin="5,5,5,0" Width="75" Grid.Row="4" Grid.ColumnSpan="2" IsEnabled="{Binding OkEnabled}" Cursor="Hand" HorizontalAlignment="Right" VerticalAlignment="Top" ClickMode="Press" Click="Ok_Click" IsDefault="True" Background="#F27935">
                         <Button.Template>

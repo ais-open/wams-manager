@@ -5,6 +5,7 @@
     <script src="../Scripts/script-loader.js"></script>
 </head>
 <body>
+    <div id="wrap">
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -13,7 +14,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img style="float: right; height: 60px; margin: 5px;" src="../Images/logo.png" alt="Applied Info Sciences" />
                 <div class="brand">WAMS tool Management Portal</div>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
@@ -28,7 +28,6 @@
         <!--<legend>Login</legend>-->
         <div class="row-fluid">
             <div class="span12">
-                <div class="span6">
                     <div class="area">
                         <form id="loginform" class="form-horizontal">
                             <div id="error" class="alert alert-error">
@@ -49,12 +48,12 @@
                             </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </div>
     <!-- /container -->
     <div id="divResult"></div>
+    
     <script>
 
         var apiUrl = '/api/Account/Login';
@@ -149,5 +148,6 @@
 
     </script>
     <script src="../Scripts/Footer.js" ></script>
+    </div>
 </body>
 </html>

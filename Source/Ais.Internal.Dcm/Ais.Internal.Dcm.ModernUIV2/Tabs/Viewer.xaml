@@ -8,6 +8,6 @@
 
     <DockPanel>
         <TextBlock x:Name="noPreviewTextBlock" Text="Please Visit Output Tab and Select a Media to Preview" HorizontalAlignment="Center" FontSize="24" DockPanel.Dock="Top" Visibility="Visible"/>
-        <WebBrowser DockPanel.Dock="Top" x:Name="webBrowser" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="550" Visibility="Collapsed"/>
+        <WebBrowser DockPanel.Dock="Top" x:Name="webBrowser" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="550" Visibility="Visible"/>
     </DockPanel>
 </UserControl>
