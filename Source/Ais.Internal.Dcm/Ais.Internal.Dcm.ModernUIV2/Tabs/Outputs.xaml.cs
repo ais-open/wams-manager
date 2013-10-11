@@ -359,7 +359,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                 }
                 PreviewWindow window = new PreviewWindow();
                 window.CloseButton.Content = "Close";
-                window.Show();
+                 window.Show();
             }
             catch (Exception ex)
             {

@@ -122,7 +122,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
         {
             try
             {
-                var response = await client.GetAsync(string.Format("api/media/MediaServices?clientKey={0}", clientKey));
+                var response = await App.GetHttpClient().GetAsync(string.Format("api/media/MediaServices?clientKey={0}", clientKey));
                 response.EnsureSuccessStatusCode(); // Throw on error code.
 
                 var mediaList = await response.Content.ReadAsAsync<IEnumerable<MediaServiceInfo>>();

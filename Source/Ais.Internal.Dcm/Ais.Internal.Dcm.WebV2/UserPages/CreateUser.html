@@ -5,6 +5,7 @@
     <script src="../Scripts/script-loader.js"></script>
 </head>
 <body>
+    <div id="wrap">
     <script src="../Scripts/header.js"></script>
     <div class="container">
         <div class="row-fluid">
@@ -29,8 +30,8 @@
                                 <input type="password" id="confirmPassword" name="userConfirmPassword" required="required" class="required" placeholder="Confirm New Password" />
                             </div>
                             <div class="control-group">
-                                <button type="button" id="createUser" class="btn btn-primary">Create User</button>
-                                <a href="./MediaService.html" class="btn btn-default">Cancel</a>
+                                <a href="./MediaService.html" class="btn btn-danger">Cancel</a>
+                                <button type="button" id="createUser" class="btn btn-primary">Create User</button>                               
                             </div>
 
                         </form>
@@ -41,8 +42,9 @@
     </div>
     <!-- /container -->
     <div id="divResult"></div>
+  
     <script src="../Scripts/footer.js"></script>
-
+  </div>
     <script>
         $(document).ready(function () {
             jQuery.support.cors = true;

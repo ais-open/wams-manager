@@ -59,21 +59,14 @@ namespace Ais.Internal.Dcm.Web.Service
         {
             try
             {
-                StringBuilder insertCommand = new StringBuilder("INSERT INTO 'MediaHistory'(ParentAssetId,FileName,DefaultThumbnailUrl,CollectionName,AlbumName,NameForSearch,TagsForSearch,MediaServiceName,EncodingName,OutputUrl,AssetFileId) ");
+                StringBuilder insertCommand = new StringBuilder("");
+
+                string str = GetFileAssetInsertStatement(model);
+                insertCommand.Append(str);
                 for (int i = 0; i < model.Outputs.Count; i++)
                 {
-                    //sqlite has unique way to concate insert statements into one batch
-                    // so the first one and the rest have different syntax
-                    if (i == 0)
-                    {
-                        insertCommand.Append(GetFirstInsertValues(model, model.Outputs[i]));
-                    }
-                    else
-                    {
-                         insertCommand.Append(GetInsertUnionValues(model, model.Outputs[i]));
-                    }
+                    insertCommand.Append(GetOutputInsertStatement(model.AssetFileId, model.Outputs[i]));
                 }
-
                 using (var connection = new SQLiteConnection(this._connectionString))
                 {
                     SQLiteCommand command = new SQLiteCommand(insertCommand.ToString(), connection);
@@ -87,6 +80,26 @@ namespace Ais.Internal.Dcm.Web.Service
             {
                 _loggerService.LogException("Insert mediahistory" + exception, exception);
             }
+        }
+
+        private string GetFileAssetInsertStatement(SearchResultViewModel model)
+        {
+            return "INSERT INTO MediaHistory (ParentAssetId,FileName,DefaultThumbnailUrl,CollectionName,AlbumName,NameForSearch,TagsForSearch,MediaServiceName,AssetFileId) SELECT '" + Clean(model.ParentAssetId) + "','" + Clean(model.FileName) + "','" + Clean(model.DefaultThumbnailUrl) + "','" + Clean(model.CollectionName) + "','" + Clean(model.AlbumName) + "','" + Clean(model.NameForSearch) + "','" + Clean(model.TagsForSearch) + "','" + Clean(model.MediaServiceName) + "','" + Clean(model.AssetFileId) + "' " +
+                 "WHERE NOT EXISTS (SELECT 1 FROM MEDIAHISTORY WHERE ASSETFILEID='" + model.AssetFileId + "') ;";
+        }
+
+        private string GetOutputInsertStatement(string assetFileId, VideoOutput output)
+        {
+            string encodingName = Clean(output.EncodingName);
+            string url = Clean(output.Url);
+            return "INSERT INTO MEDIAHISTORYOutput(ASSETFILEID,ENCODINGNAME,OUTPUTURL)"
+                    + "SELECT '" + assetFileId + "', '" + encodingName + "','" + url + "' "
+                    + "WHERE NOT EXISTS (SELECT 1 FROM MEDIAHISTORYOutput WHERE ASSETFILEID='" + assetFileId + "' AND OutputUrl='" + url + "'); ";
+        }
+
+        private string Clean(string value)
+        {
+            return value == null ? "" : value.Replace("'","''");
         }
 
         private static string GetFirstInsertValues(SearchResultViewModel model, VideoOutput searchModel)
@@ -190,23 +203,81 @@ namespace Ais.Internal.Dcm.Web.Service
             {
                 connection.Open();
                 SQLiteCommand sql_cmd = connection.CreateCommand();
-                sql_cmd.CommandText = string.Format("select * from MediaHistory WHERE {0} LIKE '%{1}%'  order by FileName  LIMIT {2}, {3}", columnToSearch, searchParam, rowsToSkip, rowsToRetrieve);
-                using (SQLiteDataReader reader = sql_cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        SearchResultViewModel item = GetSearchModel(reader);
-                        data.Add(item);
-                    }
-                }
+                ReadAssetFiles(searchParam, rowsToSkip, rowsToRetrieve, columnToSearch, data, sql_cmd);
                 //get the total count
-                //select count(1) from (select distinct assetfileid from MediaHistory WHERE NameForSearch LIKE '%.%'  group by assetfileid)
                 sql_cmd.CommandText = string.Format("select count(1) from (select distinct assetfileid from  MediaHistory WHERE {0} LIKE '%{1}%' group by assetfileid) ", columnToSearch, searchParam);
                 count = (long)sql_cmd.ExecuteScalar();
+
+                ReadOutputs(data, sql_cmd);
                 connection.Close();
             }
             searchData = new SearchData { Data = data, TotalCount = count };
             return searchData;
+        }
+
+        private static void ReadAssetFiles(string searchParam, int rowsToSkip, int rowsToRetrieve, string columnToSearch, List<SearchResultViewModel> data, SQLiteCommand sql_cmd)
+        {
+            sql_cmd.CommandText = string.Format("select * from MediaHistory WHERE {0} LIKE '%{1}%'  order by FileName  LIMIT {2}, {3}", columnToSearch, searchParam, rowsToSkip, rowsToRetrieve);
+            using (SQLiteDataReader reader = sql_cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    SearchResultViewModel item = GetSearchModel(reader);
+                    data.Add(item);
+                }
+            }
+        }
+
+        private  void ReadOutputs(List<SearchResultViewModel> data, SQLiteCommand sqlCommand)
+        {
+            if (data != null && data.Count > 0)
+            {
+                string listOfAssetIds = GetAssetIdList(data);
+                sqlCommand.CommandText = string.Format("SELECT ASSETFILEID,ENCODINGNAME,OUTPUTURL FROM MEDIAHISTORYOUTPUT WHERE ASSETFILEID IN ({0})", listOfAssetIds);
+                Dictionary<string, SearchResultViewModel> dictionary = new Dictionary<string, SearchResultViewModel>();
+                foreach (SearchResultViewModel item in data)
+                {
+                    if (!dictionary.ContainsKey(item.AssetFileId))
+                    {
+                        dictionary.Add(item.AssetFileId, item);
+                    }
+                }
+                using (SQLiteDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string fileAssetId = reader[0].ToString();
+                        string encodingName = reader[1].ToString();
+                        string outputurl = reader[2].ToString();
+                        if (dictionary.ContainsKey(fileAssetId))
+                        {
+                            var item = dictionary[fileAssetId];
+                            if (item.Outputs == null)
+                            {
+                                item.Outputs = new List<VideoOutput>();
+                            }
+                            item.Outputs.Add(new VideoOutput { EncodingName = encodingName, Url = outputurl });
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private string GetAssetIdList(List<SearchResultViewModel> data)
+        {
+            StringBuilder builder = new StringBuilder();
+            var ids = from s in data
+                      select s.AssetFileId;
+            foreach (string s in ids)
+            {
+                builder.Append("'");
+                builder.Append(s);
+                builder.Append("'");
+                builder.Append(",");
+            }
+            builder.Length--; // removing last comma
+            return builder.ToString();
         }
 
         private static SearchResultViewModel GetSearchModel(SQLiteDataReader reader)
@@ -223,9 +294,7 @@ namespace Ais.Internal.Dcm.Web.Service
             var nameForSearch = reader[6].ToString();
             tagsForSearch = reader[7].ToString();
             var mediaServiceName = reader[8].ToString();
-            var encodingName = reader[9].ToString();
-            var outputUrl = reader[10].ToString();
-            var assetFileId = reader[11].ToString();
+            var assetFileId = reader[9].ToString();
             // data to object
             data = new SearchResultViewModel()
             {
@@ -240,11 +309,7 @@ namespace Ais.Internal.Dcm.Web.Service
                 MediaServiceName = mediaServiceName,
                 AssetFileId = assetFileId
             };
-            data.Outputs = new List<VideoOutput>
-                                {
-                                    new VideoOutput() {EncodingName = encodingName, Url = outputUrl}
-                                };
-
+            data.Outputs = new List<VideoOutput>();
             // it's kind of expensive to do it for all records but for now we'll keep it like this
             data.Tags = tagsForSearch.Split(',')
                                                 .ToList()

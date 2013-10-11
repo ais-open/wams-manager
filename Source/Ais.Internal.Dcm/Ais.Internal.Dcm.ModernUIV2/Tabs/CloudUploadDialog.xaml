@@ -66,7 +66,7 @@ Background="White">
                             <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="5,10,0,0"  Text="SELECT FILE" FontSize="19" Foreground="White"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="12,10,0,0"  Text="SELECT FILE" FontSize="19" Foreground="White"/>
                         <Button Margin="0,10,10,10"  Foreground="White" Background="#1fbba6" Grid.Column="1" HorizontalAlignment="Right" Click="CancelButton_OnClick"  Style="{StaticResource SystemButton}" >
                             <Button.Content>
                                 <!--<Grid Width="16" Height="17" RenderTransform="1,0,0,1,0,1">

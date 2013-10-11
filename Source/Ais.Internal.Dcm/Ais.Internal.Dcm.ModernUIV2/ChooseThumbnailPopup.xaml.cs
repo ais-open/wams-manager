@@ -29,7 +29,9 @@ namespace Ais.Internal.Dcm.ModernUIV2
             get { return thumbnailList; }
             set
             {
-                thumbnailList = value; OnPropertyChanged("ThumbnailList");
+                thumbnailList = value;
+                OnPropertyChanged("ThumbnailList");
+                OnPropertyChanged("IsThumbnailAvailable");
             }
         }
 
@@ -46,6 +48,10 @@ namespace Ais.Internal.Dcm.ModernUIV2
             }
         }
 
+        public bool IsThumbnailAvailable
+        {
+            get { return thumbnailList != null && thumbnailList.Count > 0; }
+        }
 
         private string downloadURL;
         public string DownloadURL

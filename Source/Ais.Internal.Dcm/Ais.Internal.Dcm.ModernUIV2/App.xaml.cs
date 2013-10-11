@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -51,7 +52,10 @@ namespace Ais.Internal.Dcm.ModernUIV2
             SettingHelper helper = new SettingHelper();
             serviceUrl = helper.GetUrlFromSettingFile();
             credential = helper.GetCredential();
-            var client = new HttpClient();
+           var handler = new HttpClientHandler { UseDefaultCredentials = true };
+            
+
+            var client = new HttpClient(handler);
             client.BaseAddress = new Uri(serviceUrl);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_DATA_TYPE));
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(BASIC_AUTHENTICATION_HEADER, credential);

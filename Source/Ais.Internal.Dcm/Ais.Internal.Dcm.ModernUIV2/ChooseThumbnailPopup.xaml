@@ -10,7 +10,7 @@ AllowsTransparency="True"
 Background="White">
 
     <Window.Resources>
-
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style TargetType="{x:Type Button}" x:Key="NavigationButton">
             <Setter Property="SnapsToDevicePixels" Value="true"/>
             <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -183,7 +183,7 @@ Background="White">
                 </Grid.RowDefinitions>
 
                 <!-- Title and top close button-->
-                <StackPanel Margin="-10,-10,-10,7"   Grid.ColumnSpan="2" Background="#323a45" >
+                <StackPanel Margin="-10,-10,-23,7" Background="#323a45" >
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -193,7 +193,7 @@ Background="White">
                             <ColumnDefinition Width="58*"/>
                             <ColumnDefinition Width="14*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="5,10,0,0"  Text="SHARE VIDEO" FontSize="19" Foreground="White"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="12,10,0,0"  Text="SHARE VIDEO" FontSize="19" Foreground="White"/>
                         <Button Margin="0,10,10,10"  Foreground="White" Background="#1fbba6" Grid.Column="2" HorizontalAlignment="Right" Click="Button_Click"  Style="{StaticResource SystemButton}" >
                             <Button.Content>
                                 <TextBlock Text="X" FontSize="14" Padding="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="19" Height="19" />
@@ -204,10 +204,10 @@ Background="White">
                 </StackPanel>
 
                 <!-- Label for Choose Thumbnail-->
-                <TextBlock  Grid.Row="1" Text="Choose a thumbnail"  HorizontalAlignment="Left" Margin="10" FontFamily="Segoe UI Regular" FontSize="13"
+                <TextBlock  Grid.Row="1" Text="Choose a thumbnail" Visibility="{Binding IsThumbnailAvailable,Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}"  HorizontalAlignment="Left" Margin="10" FontFamily="Segoe UI Regular" FontSize="13"
                    VerticalAlignment="Center"/>
 
-                <StackPanel  Grid.Row="2" Grid.ColumnSpan="2">
+                <StackPanel  Grid.Row="2" Grid.ColumnSpan="2" Visibility="{Binding IsThumbnailAvailable,Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}">
 
 
                     <!-- ListBox that contains Images for Album Name-->
@@ -228,9 +228,9 @@ Background="White">
 
                 <!-- Button Areas : Share and Embed Button -->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Width="445" HorizontalAlignment="Left" Grid.Row="3"  Grid.Column="1">
-                    <TabControl Background="Transparent"  TabStripPlacement="Top">
+                    <TabControl Background="Transparent"  TabStripPlacement="Top" Margin="10,0,0,0">
                         <TabItem Background="Transparent"   Header="Share this Video">
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical" Width="434">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock  Margin="5">
                                 <Hyperlink NavigateUri="{Binding DownloadURL}" RequestNavigate="Facebook_RequestNavigate" Foreground="#f27935">
@@ -246,10 +246,10 @@ Background="White">
                                 </Hyperlink>
                                     </TextBlock>
                                 </StackPanel>
-                                <Border BorderThickness="1" BorderBrush="Gray">
-                                    <TextBlock TextWrapping="Wrap" Name="txtDownload" Grid.Row="0" Background="Transparent" Width="410"  MinHeight="150" Text="{Binding DownloadURL}" IsEnabled="False"/>
+                                <Border BorderThickness="1" BorderBrush="Gray" Margin="0,10,0,0" Width="427">
+                                    <TextBlock TextWrapping="Wrap" Name="txtDownload" Grid.Row="0" Background="Transparent"  Width="439"  MinHeight="150" Text="{Binding DownloadURL}" IsEnabled="False"/>
                                 </Border>
-                                <Button Width="65" HorizontalAlignment="Right" Margin="0,10,10,10" Content="Copy" Click="CopyDownloadURLToClipBoard"/>
+                                <Button Width="65" HorizontalAlignment="Right" Margin="0,10,3,10" Content="Copy" Click="CopyDownloadURLToClipBoard"/>
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Embed this Video"  BorderBrush="Transparent" Background="Transparent" >
