@@ -211,7 +211,7 @@
 
             <!-- Process Video Selection Region -->
             <Grid Grid.Row="5" Margin="5,0,0,0">
-                <Button Margin="0" HorizontalAlignment="Right" Cursor="Hand" ClickMode="Press" IsEnabled="{Binding Path=ProcessEnabled, Mode=TwoWay}" Height="30"  Click="ProcessJob_Click">
+                <Button Margin="0,0,4,0" HorizontalAlignment="Right" Cursor="Hand" ClickMode="Press" IsEnabled="{Binding Path=ProcessEnabled, Mode=TwoWay}" Height="30"  Click="ProcessJob_Click">
                     <Button.Template>
                         <ControlTemplate>
                             <Border Background="#F27935">
@@ -236,7 +236,7 @@
             </Grid>
 
             <!-- Upload status of selected video files Region -->
-            <DataGrid Grid.Row="6" Margin="5,5,0,0" BorderBrush="Gainsboro" BorderThickness="1" ColumnHeaderStyle="{StaticResource UploadStatusGridColumnHeaderStyle}" RowHeaderStyle="{StaticResource UploadStatusGridRowHeaderStyle}" VerticalAlignment="Top" Width="895" HeadersVisibility="All" HorizontalAlignment="Left" ItemsSource="{Binding UploadList, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" VerticalScrollBarVisibility="Visible" Height="29">
+            <DataGrid Grid.Row="6" Margin="5,5,0,0" BorderBrush="Gainsboro" BorderThickness="1" ColumnHeaderStyle="{StaticResource UploadStatusGridColumnHeaderStyle}" RowHeaderStyle="{StaticResource UploadStatusGridRowHeaderStyle}" VerticalAlignment="Top" Width="895" HeadersVisibility="All" HorizontalAlignment="Left" ItemsSource="{Binding UploadList, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" VerticalScrollBarVisibility="Visible" >
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="File Name" Width="1*" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>

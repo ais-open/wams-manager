@@ -308,7 +308,7 @@
                                 </Border>
                                 <Border Grid.Row="1" Background="White"></Border>
                                 <Border Grid.Row="2" Background="#9EA7B3">
-                                    <TextBlock Text="VIEW COLLECTION" FontFamily="Segoe UI Semibold" FontSize="14" HorizontalAlignment="Center" />
+                                    <TextBlock Text="VIEW COLLECTION" FontFamily="Segoe UI Semibold" Margin="0,2,0,0 " FontSize="14" HorizontalAlignment="Center" />
                                 </Border>
                             </Grid>
                         </DataTemplate>
