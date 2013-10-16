@@ -406,6 +406,7 @@
     <Resource Include="Images\wams_logo.ico" />
     <Resource Include="Images\icons\share_facebook.jpg" />
     <Resource Include="Images\icons\share_twitter.png" />
+    <Resource Include="Images\icons\icon-error-large.png" />
     <Content Include="mp4.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
