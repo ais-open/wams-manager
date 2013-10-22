@@ -11,7 +11,8 @@ namespace AzurePatterns.Repository
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1405:ComVisibleTypeBaseTypesShouldBeComVisible")]
     public class MediaServiceRepository : RepositoryBase<MediaServiceEntity>
     {
-        public MediaServiceRepository(CloudStorageAccount storageAccount) : base(storageAccount, "MediaServiceTable")
+        public MediaServiceRepository(CloudStorageAccount storageAccount, string clientID)
+            : base(storageAccount,string.Format("{0}MediaServiceTable",clientID))
         {
 
         }

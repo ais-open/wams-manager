@@ -11,8 +11,8 @@ namespace AzurePatterns.Repository
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1405:ComVisibleTypeBaseTypesShouldBeComVisible")]
     public class AssetThumbnailRepository : RepositoryBase<AssetThumbnailEntity>
     {
-        public AssetThumbnailRepository(CloudStorageAccount storageAccount)
-            : base(storageAccount, "AssetThumbnailTable")
+        public AssetThumbnailRepository(CloudStorageAccount storageAccount, string clientID)
+            : base(storageAccount, string.Format("{0}AssetThumbnailTable", clientID))
         {
 
         }

@@ -3,6 +3,7 @@
 <head>
     <title>Media Service Management</title>
     <script src="../Scripts/script-loader.js"></script>
+    
 </head>
 <body>
     <div id="wrap">
@@ -52,11 +53,15 @@
 
             checkForUserAdmin();
             checkForUserLoggedIn();
-
+            jQuery.validator.addMethod("alphanumeric", function (value, element) {
+                return !jQuery.validator.methods.required(value, element) || /^[a-zA-Z0-9_]+$/i.test(value);
+            }
+             , "Letters, numbers or underscores only please");
             $("#createUserForm").validate({
 
                 rules: {
-                    userName: "required",
+                    userName:{ required:true,
+                        alphanumeric : true},
                     userPassword: "required",
                     userConfirmPassword: "required"
                 },

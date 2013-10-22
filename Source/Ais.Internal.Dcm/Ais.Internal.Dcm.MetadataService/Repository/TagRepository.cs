@@ -10,7 +10,8 @@ namespace AzurePatterns.Repository
 {
     public class TagRepository : RepositoryBase<TagEntity>
     {
-        public TagRepository(CloudStorageAccount storageAccount) : base(storageAccount,"TagTable")
+        public TagRepository(CloudStorageAccount storageAccount, string clientID)
+            : base(storageAccount,string.Format("{0}TagTable",clientID))
         {
             
         }

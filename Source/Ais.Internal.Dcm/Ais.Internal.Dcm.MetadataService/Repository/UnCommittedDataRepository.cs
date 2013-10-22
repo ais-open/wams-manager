@@ -1,4 +1,4 @@
-﻿using AzurePatterns.Entity;
+﻿ using AzurePatterns.Entity;
 using Microsoft.WindowsAzure.Storage;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace AzurePatterns.Repository
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1405:ComVisibleTypeBaseTypesShouldBeComVisible")]
     public class UnCommittedDataRepository : RepositoryBase<UnCommittedDataEntity>
     {
-        public UnCommittedDataRepository(CloudStorageAccount storageAccount)
-            : base(storageAccount, "UnCommittedData")
+        public UnCommittedDataRepository(CloudStorageAccount storageAccount, string clientID)
+            : base(storageAccount,string.Format("{0}UnCommittedData",clientID))
         {
 
         }

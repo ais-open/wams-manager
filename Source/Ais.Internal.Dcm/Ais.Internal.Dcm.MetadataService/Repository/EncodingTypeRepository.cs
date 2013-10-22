@@ -11,8 +11,8 @@ namespace AzurePatterns.Repository
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1405:ComVisibleTypeBaseTypesShouldBeComVisible")]
     public class EncodingTypeRepository :RepositoryBase<EncodingTypeEntity>
     {
-        public EncodingTypeRepository(CloudStorageAccount storageAccount)
-            : base(storageAccount,"EncodingTypeTable")
+        public EncodingTypeRepository(CloudStorageAccount storageAccount, string clientID)
+            : base(storageAccount,string.Format("{0}EncodingTypeTable",clientID))
         {
 
         }

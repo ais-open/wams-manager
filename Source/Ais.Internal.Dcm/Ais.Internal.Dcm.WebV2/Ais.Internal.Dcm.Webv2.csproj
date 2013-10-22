@@ -229,7 +229,9 @@
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\AdminMediaService.cs" />
+    <Compile Include="Service\AdminMediaService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Service\CloudStorageAccountInformation.cs" />
     <Compile Include="Service\ISearchService.cs" />
     <Compile Include="Service\IUserMediaService.cs" />

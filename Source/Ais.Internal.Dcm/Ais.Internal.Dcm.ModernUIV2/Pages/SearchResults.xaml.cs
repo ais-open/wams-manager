@@ -152,7 +152,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
         }
         #endregion
         #region Search
-        private async  Task PerformSearch(string searchString,  string searchType)
+        private async Task PerformSearch(string searchString, string searchType)
         {
             int searchTypeParam = 0;
             if (string.IsNullOrEmpty(searchString))
@@ -164,9 +164,9 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
                 searchTypeParam = 1;
             }
 
-            int rowsToSkip = (currentPage)*pageSize;
-            var list = await SearchMedia(searchString, rowsToSkip, pageSize,searchTypeParam);
-            
+            int rowsToSkip = (currentPage) * pageSize;
+            var list = await SearchMedia(searchString, rowsToSkip, pageSize, searchTypeParam);
+
             if (list != null && list.Data != null && list.Data.Count > 0)
             {
                 totalRecordsCount = (int)list.TotalCount;
@@ -178,15 +178,15 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
                     AssetList.MoveToPrev = MoveToPrev;
                     SearchDescription = "Search Results for ";
                 }
-                else
-                {
-                    AssetList = null;
-                    SearchDescription = "No results found for ";
-                }
-                this.SearchText = searchString;
             }
-           
+          else
+            {
+                AssetList = null;
+                SearchDescription = "No results found for ";
+            }
+            this.SearchText = searchString;
         }
+
         private async void MoveToNext()
         {
             if (CurrentPage < PageCount)
