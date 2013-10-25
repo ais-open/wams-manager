@@ -16,6 +16,8 @@ namespace Ais.Internal.Dcm.Web.Controllers
     public class AccountController : ApiController
     {
         ILoggerService _loggerService = null;
+
+       
         public AccountController(ILoggerService loggerService)
         {
             this._loggerService = loggerService;
@@ -173,8 +175,10 @@ namespace Ais.Internal.Dcm.Web.Controllers
         [ActionName("CreateUser")]
         [HttpPost]
         public object CreateUser(RegisterModel registerModel)
-        {
+        {    
             object returnObj = null;
+            var rdr = new System.Configuration.AppSettingsReader();
+            string companyName = (string)rdr.GetValue("customer_append", typeof(string));
             try
             {
                 var errorMessage = "There is some problem at server.";
@@ -190,7 +194,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
                 MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName);
                 if (collection != null && collection.Count > 0)
                     return returnObj = new { userCreation = false, message = "User with this username already exists." };
-                var user = Membership.CreateUser(registerModel.UserName, registerModel.Password);
+                var user = Membership.CreateUser( string.Format("{0}_{1}",companyName, registerModel.UserName), registerModel.Password);
 
                 returnObj = new { userCreation = true, message = "User created successfully." };
 
@@ -231,13 +235,19 @@ namespace Ais.Internal.Dcm.Web.Controllers
             HttpResponseMessage message = null;
             try
             {
+                var rdr = new System.Configuration.AppSettingsReader();
+                string companyName = (string)rdr.GetValue("customer_append", typeof(string));
                 int totalUsers = 0;
                 --pageNumber; // Membership uses 0 based index
                 List<UserModel> users = new List<UserModel>();
-                var collection = Membership.GetAllUsers(pageNumber, pageSize, out totalUsers);
+               // var collection = Membership.GetAllUsers(pageNumber, pageSize, out totalUsers);
+                var collection = Membership.FindUsersByName(companyName+"%",pageNumber, pageSize, out totalUsers);
                 var userNameTicket = HttpContext.Current.Request.Cookies["userNameTicket"].Value;
                 var ticket = FormsAuthentication.Decrypt(userNameTicket);
                 var currentUser = ticket.Name;
+              
+                //  foreach (MembershipUser item in collection.Cast<MembershipUser>().Where(user=> user.UserName.StartsWith(companyName+ "_") ))
+                
                 foreach (MembershipUser item in collection)
                 {
                     var user = new UserModel

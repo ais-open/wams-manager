@@ -80,6 +80,10 @@
     <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAzure.Storage.2.0.6.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External.lib\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -355,13 +359,19 @@
     <None Include="Properties\PublishProfiles\aismediaapi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\aismediavishwasdemo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\aismediavishwasdemo - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\AisWebDeploy.pubxml" />
+    <None Include="Properties\PublishProfiles\AisWebDeploy.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\dev-ais-dcm-wams - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\dev-ais-dcm-wams - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\testaismediaapi - FTP %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\testaismediaapi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\testaismediaapi - FTP.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\testaismediaapi - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\testaismediaapi - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\testaismediaapi - Web Deploy.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Images\loading.gif" />
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\blockui.js" />
