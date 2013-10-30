@@ -39,7 +39,10 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-
+#inputFriendlyName
+{
+    width :211px;
+}
 article,
 aside,
 details,
@@ -1195,8 +1198,9 @@ input[type="file"] {
   line-height: 30px;
 }
 
+
 select {
-  width: 220px;
+  width: 225px;
   background-color: #ffffff;
   border: 1px solid #cccccc;
 }

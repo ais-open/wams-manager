@@ -21,7 +21,9 @@ namespace Ais.Internal.Dcm.Web.Service
             get
             {
                 var rdr = new System.Configuration.AppSettingsReader();
-                return (string)rdr.GetValue("customer_append", typeof(string));
+                string ID = (string)rdr.GetValue("customer_append", typeof(string));
+                string companyName = ID.Split('@')[1].Split('.')[0];
+                return companyName;
             }
         }
 

@@ -91,7 +91,14 @@
               alert(request.responseText);
           });
         }
-
+        
+        $("select").each( function (){
+            var i =0;
+            var sel = this;
+            for(i=0;i<sel.length;i++){
+                sel.options[i].title = sel.options[i].text;
+            }
+        } )
         function ResetWindow() {
 
             $(inputFriendlyName).val('');
@@ -140,7 +147,41 @@
                             <div class="control-group">
                                 <label class="control-label" for="inputTechnicalName">Technical Name</label>
                                 <div class="controls">
-                                    <input type="text" id="inputTechnicalName" placeholder="Technical Name" />
+                                    
+                                    <select name="inputTechnicalName" required id="inputTechnicalName" >
+                                        <option value="" disabled selected>Choose from Technical Name</option>
+                                        <option value ="Apple HLS Format" title="Apple HLS Format" >Apple HLS Format</option>
+                                        <option value ="H264 Adaptive Bitrate MP4 Set 1080p" title="H264 Adaptive Bitrate MP4 Set 1080p">H264 Adaptive Bitrate MP4 Set 1080p</option>
+                                        <option value="H264 Adaptive Bitrate MP4 Set 1080p">H264 Adaptive Bitrate MP4 Set 1080p</option>
+                                        <option value="H264 Adaptive Bitrate MP4 Set 720p">H264 Adaptive Bitrate MP4 Set 720p</option>   
+                                        <option value="H264 Adaptive Bitrate MP4 Set SD 4x3">H264 Adaptive Bitrate MP4 Set SD 4x3</option>
+                                        <option value="H264 Broadband 1080p">H264 Broadband 1080p</option>
+                                        <option value="H264 Broadband 720p">H264 Broadband 720p</option>
+                                        <option value="H264 Broadband SD 16x9">H264 Broadband SD 16x9</option>     
+                                        <option value="H264 Broadband SD 4x3">H264 Broadband SD 4x3</option>
+                                        <option value="H264 Smooth Streaming 1080p">H264 Smooth Streaming 1080p</option>
+                                        <option value="H264 Smooth streaming 720p">H264 Smooth streaming 720p</option>
+                                        <option value="H264 Smooth Streaming 720p Xbox Live ADK">H264 Smooth Streaming 720p Xbox Live ADK</option>
+                                        <option value="H264 Smooth Streaming 720p for 3G or 4G">H264 Smooth Streaming 720p for 3G or 4G</option>
+                                        <option value="H264 Smooth Streaming SD 16x9">H264 Smooth Streaming SD 16x9</option>
+                                        <option value="H264 Smooth Streaming SD 4x3">H264 Smooth Streaming SD 4x3</option>
+                                        <option value="VC1 Broadband 1080p">VC1 Broadband 1080p</option>
+                                        <option value="VC1 Broadband 720p">VC1 Broadband 720p</option>
+                                        <option value="VC1 Broadband SD 16x9">VC1 Broadband SD 16x9</option> 
+                                        <option value="VC1 Broadband SD 4x3">VC1 Broadband SD 4x3</option>
+                                        <option value="VC1 Smooth Streaming 1080p">VC1 Smooth Streaming 1080p</option>
+                                        <option value="VC1 Smooth Streaming 1080p Xbox Live ADK">VC1 Smooth Streaming 1080p Xbox Live ADK</option>
+                                        <option value="VC1 Smooth Streaming 720p">VC1 Smooth Streaming 720p</option>
+                                        <option value="VC1 Smooth Streaming 720p Xbox Live ADK">VC1 Smooth Streaming 720p Xbox Live ADK</option>
+                                        <option value ="VC1 Smooth Streaming SD 16x9">VC1 Smooth Streaming SD 16x9</option>
+                                        <option value="VC1 Smooth Streaming SD 4x3">VC1 Smooth Streaming SD 4x3</option>
+                                        <option value="H264 Smooth Streaming Windows Phone 7 Series">H264 Smooth Streaming Windows Phone 7 Series</option>
+                                        <option value="H264 Adaptive Bitrate MP4 Set 720p for iOS Cellular Only">H264 Adaptive Bitrate MP4 Set 720p for iOS Cellular Only</option>
+                                        <option value="H264 Adaptive Bitrate MP4 Set SD 4x3 for iOS Cellular Only">H264 Adaptive Bitrate MP4 Set SD 4x3 for iOS Cellular On</option>
+                                    
+                                    
+                                    </select>
+                                
                                 </div>
                             </div>
 

@@ -1,6 +1,6 @@
 ﻿using Ais.Internal.Dcm.Web.Models;
 using Ais.Internal.Dcm.Web.Service;
-using Microsoft.Samples.ServiceHosting.AspProviders;
+//using Microsoft.Samples.ServiceHosting.AspProviders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Security;
+using System.Text.RegularExpressions;
+
 
 namespace Ais.Internal.Dcm.Web.Controllers
 {
@@ -178,7 +180,10 @@ namespace Ais.Internal.Dcm.Web.Controllers
         {    
             object returnObj = null;
             var rdr = new System.Configuration.AppSettingsReader();
-            string companyName = (string)rdr.GetValue("customer_append", typeof(string));
+            string emailID = (string)rdr.GetValue("customer_append", typeof(string));
+            string domainName = emailID.Split('@')[1];
+           
+          
             try
             {
                 var errorMessage = "There is some problem at server.";
@@ -194,10 +199,14 @@ namespace Ais.Internal.Dcm.Web.Controllers
                 MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName);
                 if (collection != null && collection.Count > 0)
                     return returnObj = new { userCreation = false, message = "User with this username already exists." };
-                var user = Membership.CreateUser( string.Format("{0}_{1}",companyName, registerModel.UserName), registerModel.Password);
-
-                returnObj = new { userCreation = true, message = "User created successfully." };
-
+                if (Regex.IsMatch(registerModel.UserName,@"^[a-zA-Z0-9_]{3,20}$")==true)
+                {
+                    var user = Membership.CreateUser(string.Format("{0}@{1}", registerModel.UserName, domainName), registerModel.Password,domainName);
+                    returnObj = new { userCreation = true, message = "User created successfully." };
+                }
+                else
+                { returnObj = new { userCreation = false, message = "Invalid UserName"};
+                }
             }
             catch (Exception exp)
             {
@@ -205,6 +214,9 @@ namespace Ais.Internal.Dcm.Web.Controllers
             }
             return returnObj;
         }
+
+       
+
 
         [ActionName("Logout")]
         [HttpPost]
@@ -237,16 +249,23 @@ namespace Ais.Internal.Dcm.Web.Controllers
             {
                 var rdr = new System.Configuration.AppSettingsReader();
                 string companyName = (string)rdr.GetValue("customer_append", typeof(string));
+                string domainName = companyName.Split('@')[1];
                 int totalUsers = 0;
+                int count = 0;
                 --pageNumber; // Membership uses 0 based index
                 List<UserModel> users = new List<UserModel>();
-               // var collection = Membership.GetAllUsers(pageNumber, pageSize, out totalUsers);
-                var collection = Membership.FindUsersByName(companyName+"%",pageNumber, pageSize, out totalUsers);
+                /* var collection = Membership.GetAllUsers();
+               
+                 var collection = Membership.GetAllUsers(pageNumber, pageSize, out totalUsers);
+                 var collection = Membership.FindUsersByEmail(domainName);*/
+                  
+                // We are using Find user by name but we are finding with the email column.
+                var collection = Membership.FindUsersByName(domainName + "%", pageNumber, pageSize, out totalUsers);
                 var userNameTicket = HttpContext.Current.Request.Cookies["userNameTicket"].Value;
                 var ticket = FormsAuthentication.Decrypt(userNameTicket);
                 var currentUser = ticket.Name;
               
-                //  foreach (MembershipUser item in collection.Cast<MembershipUser>().Where(user=> user.UserName.StartsWith(companyName+ "_") ))
+               //  foreach (MembershipUser item in collection.Cast<MembershipUser>().Where(user=> user.UserName.Contains(domainName)))
                 
                 foreach (MembershipUser item in collection)
                 {
@@ -262,7 +281,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
                         user.EditNotAllowed = true;
                     }
                     users.Add(user);
-
+                    count ++;
                 }
                 message = Request.CreateResponse(HttpStatusCode.OK, new GetUsersResponse { Users = users, PageNumber = ++pageNumber, PageSize = pageSize, TotalUsers = totalUsers });
 
