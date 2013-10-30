@@ -50,9 +50,15 @@
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\..\..\..\GitRepo\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\Ais.Internal.Dcm.WebV2\bin\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+      <HintPath>..\..\..\..\..\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\Ais.Internal.Dcm.WebV2\bin\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>C:\Users\Devi Priya\Documents\Visual Studio 2012\Projects\Ais.Internal.Dcm\Ais.Internal.Dcm.WebV2\bin\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\External.lib\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />

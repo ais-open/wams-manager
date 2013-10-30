@@ -436,7 +436,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Azure provider\HOL-MigratingAspNetApps-VS2012-master\Source\Assets\AspProviders\AspProviders.csproj">
+    <ProjectReference Include="..\AspProviders\AspProviders.csproj">
       <Project>{011811b0-351b-4b66-bc52-d808a8bddcfa}</Project>
       <Name>AspProviders</Name>
     </ProjectReference>
