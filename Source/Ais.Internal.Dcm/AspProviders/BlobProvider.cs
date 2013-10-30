@@ -25,7 +25,7 @@ namespace Microsoft.Samples.ServiceHosting.AspProviders
           Critical,
           Error,
           Warning,
-          Information,
+           Information,
           Verbose
      };
 
