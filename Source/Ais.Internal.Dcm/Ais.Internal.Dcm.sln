@@ -27,8 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.lib", "External.li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Clickonce", "Ais.Internal.Dcm.Clickonce\Ais.Internal.Dcm.Clickonce.csproj", "{33105088-098B-4317-A2E8-304F0CED5C95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspProviders", "AspProviders\AspProviders.csproj", "{011811B0-351B-4B66-BC52-D808A8BDDCFA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{33105088-098B-4317-A2E8-304F0CED5C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33105088-098B-4317-A2E8-304F0CED5C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33105088-098B-4317-A2E8-304F0CED5C95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{011811B0-351B-4B66-BC52-D808A8BDDCFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{011811B0-351B-4B66-BC52-D808A8BDDCFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{011811B0-351B-4B66-BC52-D808A8BDDCFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{011811B0-351B-4B66-BC52-D808A8BDDCFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

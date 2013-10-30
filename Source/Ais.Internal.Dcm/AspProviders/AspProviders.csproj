@@ -49,12 +49,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\..\..\..\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\Ais.Internal.Dcm.WebV2\bin\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Storage">
-      <HintPath>C:\Users\Devi Priya\Documents\Visual Studio 2012\Projects\Ais.Internal.Dcm\Ais.Internal.Dcm.WebV2\bin\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ais.Internal.Dcm.WebV2\bin\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\External.lib\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
@@ -106,6 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Microsoft.WindowsAzure.ServiceRuntime.dll" />
+    <Content Include="Microsoft.WindowsAzure.StorageClient.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
