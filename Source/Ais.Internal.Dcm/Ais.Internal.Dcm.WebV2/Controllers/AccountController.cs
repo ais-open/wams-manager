@@ -196,13 +196,19 @@ namespace Ais.Internal.Dcm.Web.Controllers
                     return returnObj;
                 }
 
-                MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName);
-                if (collection != null && collection.Count > 0)
-                    return returnObj = new { userCreation = false, message = "User with this username already exists." };
-                if (Regex.IsMatch(registerModel.UserName,@"^[a-zA-Z0-9_]{3,20}$")==true)
+               
+                if (Regex.IsMatch(registerModel.UserName,@"^[a-zA-Z0-9_.]{3,40}$")==true)
                 {
-                    var user = Membership.CreateUser(string.Format("{0}@{1}", registerModel.UserName, domainName), registerModel.Password,domainName);
-                    returnObj = new { userCreation = true, message = "User created successfully." };
+                    MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName);
+                    if (collection != null && collection.Count > 0)
+                    {
+                        return returnObj = new { userCreation = false, message = "User with this username already exists." };
+                    }
+                    else
+                    {
+                        var user = Membership.CreateUser(string.Format("{0}@{1}", registerModel.UserName, domainName), registerModel.Password, domainName);
+                        returnObj = new { userCreation = true, message = "User created successfully." };
+                    }
                 }
                 else
                 { returnObj = new { userCreation = false, message = "Invalid UserName"};
