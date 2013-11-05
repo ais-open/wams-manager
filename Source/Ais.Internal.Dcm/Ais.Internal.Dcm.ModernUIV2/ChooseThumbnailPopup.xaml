@@ -194,9 +194,9 @@ Background="White">
                             <ColumnDefinition Width="14*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="12,10,0,0"  Text="SHARE VIDEO" FontSize="19" Foreground="White"/>
-                        <Button Margin="0,10,10,10"  Foreground="White" Background="#1fbba6" Grid.Column="2" HorizontalAlignment="Right" Click="Button_Click"  Style="{StaticResource SystemButton}" >
+                        <Button Margin="0,10,20,10"  Foreground="White" Background="#1fbba6" Grid.Column="2" HorizontalAlignment="Right" Click="Button_Click"  Style="{StaticResource SystemButton}" >
                             <Button.Content>
-                                <TextBlock Text="X" FontSize="14" Padding="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="19" Height="19" />
+                                <TextBlock Text="X" FontSize="14" Padding="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="19" Height="19" RenderTransformOrigin="-0.632,0.474" />
                             </Button.Content>
                         </Button>
                     </Grid>
