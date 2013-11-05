@@ -37,7 +37,7 @@
     <SuiteName>Digital Content Management</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -390,7 +390,7 @@
     <Resource Include="Images\MediaService.png" />
     <Resource Include="Images\Media-Play-01.png" />
     <Resource Include="Images\settings.ico" />
-    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\logo1.png" />
     <Content Include="about.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -409,6 +409,7 @@
     <Resource Include="Images\icons\share_facebook.jpg" />
     <Resource Include="Images\icons\share_twitter.png" />
     <Resource Include="Images\icons\icon-error-large.png" />
+    <Resource Include="Images\logo.png" />
     <Content Include="mp4.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

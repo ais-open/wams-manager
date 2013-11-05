@@ -555,7 +555,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                     filePath = dlg.FileName;
                     LocalFilePath = filePath;
                     IsFileLocal = true;
-
+                    
                     //UploadFileToAsset(filePath);
                 }
             }
@@ -574,6 +574,8 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
             cloudWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             cloudWindow.AssetFileSelected += cloudWindow_AssetFileSelected;
             cloudWindow.ShowDialog();
+
+            
         }
 
         private void cloudWindow_AssetFileSelected(object sender, EventArgs e)

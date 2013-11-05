@@ -43,11 +43,11 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Width="Auto" TextWrapping="Wrap" FontSize="12" Margin="5,2,2,5">
                     <TextBlock.Inlines>
-                        <Run Text="With WAMS Manager, you have the ability to generate multiple different output types &amp; unique assets with just one video upload. The grouping of each video's output types and assets are " />
+                        <Run Text="With AIS WAMS Manager, you have the ability to generate different output types &amp; unique assets with just one video upload. The grouping of each video's output types and assets are " />
                         <Run FontWeight="Bold" Text="Video Reels. " />
                     </TextBlock.Inlines>
                 </TextBlock>
-                <TextBlock Grid.Row="1" Width="Auto" TextWrapping="Wrap" FontSize="12" Margin="5,5,2,0">
+                <TextBlock Grid.Row="1" Width="Auto" TextWrapping="Wrap" FontSize="12" Margin="5,0,2,0">
                     <TextBlock.Inlines>
                         <Run Text="Each "></Run>
                         <Run FontWeight="Bold" Text="Video Reel "></Run>
@@ -75,11 +75,15 @@
 
             <!-- Output Encoding Type Selection Region -->
             <Grid Grid.Row="3" x:Name="SelectFileGrid" Margin="5,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="426*"/>
+                    <ColumnDefinition Width="469*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="0,-6,0,6">
+                <Grid Grid.Row="0" Margin="0,-6,0,6" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="488*"/>
                         <ColumnDefinition Width="407*"/>
@@ -119,7 +123,7 @@
                     </Border>
                     <Separator Grid.Row="2" Background="#9EA7B3" Height="4" Grid.ColumnSpan="2"></Separator>
                 </Grid>
-                <Grid Grid.Row="1" Visibility="Collapsed">
+                <Grid Grid.Row="1" Visibility="Collapsed" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="Auto"/>
@@ -188,8 +192,8 @@
                     </Popup>
                     <Button HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="30" Content="ADD TAGS"  Margin="5,15,5,-5" Padding="2" Style="{StaticResource ButtonSizeStyle}" Foreground="#323a45" Background="#9ea7b3"  Click="AddTags_Click"></Button>
                 </StackPanel>
-                
-                <Grid Grid.Row="2">
+
+                <Grid Grid.Row="2" Margin="0,5,0,0" >
                     <ListView ItemsSource="{Binding Path=TagList, Mode=TwoWay}">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -217,8 +221,13 @@
             </Grid>
 
             <!-- Process Video Selection Region -->
-            <Grid Grid.Row="5" Margin="5,0,0,0">
-                <Button Margin="0,0,4,0" HorizontalAlignment="Right" Cursor="Hand" ClickMode="Press" IsEnabled="{Binding Path=ProcessEnabled, Mode=TwoWay}" Height="30"  Click="ProcessJob_Click">
+            <Grid Grid.Row="5" Margin="5,0,0,0" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="743*"/>
+                    <ColumnDefinition Width="127*"/>
+                    <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <Button Margin="0,-30,30,34" HorizontalAlignment="Right" Cursor="Hand" ClickMode="Press" IsEnabled="{Binding Path=ProcessEnabled, Mode=TwoWay}" Height="30"  Click="ProcessJob_Click" Grid.Column="1" Grid.ColumnSpan="2">
                     <Button.Template>
                         <ControlTemplate>
                             <Border Background="#F27935">
@@ -243,7 +252,7 @@
             </Grid>
 
             <!-- Upload status of selected video files Region -->
-            <DataGrid Grid.Row="6" Margin="5,5,0,0" BorderBrush="Gainsboro" BorderThickness="1" ColumnHeaderStyle="{StaticResource UploadStatusGridColumnHeaderStyle}" RowHeaderStyle="{StaticResource UploadStatusGridRowHeaderStyle}" VerticalAlignment="Top" Width="895" HeadersVisibility="All" HorizontalAlignment="Left" ItemsSource="{Binding UploadList, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" VerticalScrollBarVisibility="Visible" >
+            <DataGrid Grid.Row="5" Margin="5,17,0,0" BorderBrush="Gainsboro" BorderThickness="1" ColumnHeaderStyle="{StaticResource UploadStatusGridColumnHeaderStyle}" RowHeaderStyle="{StaticResource UploadStatusGridRowHeaderStyle}" VerticalAlignment="Top" Width="895" HeadersVisibility="All" HorizontalAlignment="Left" ItemsSource="{Binding UploadList, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" VerticalScrollBarVisibility="Visible" Grid.RowSpan="2" >
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="File Name" Width="1*" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>

@@ -199,10 +199,10 @@
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" Margin="0,0,0,10" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                <StackPanel Grid.Column="0" Margin="0,0,0,10" Grid.ColumnSpan="2" Orientation="Horizontal" >
                                     <ToggleButton x:Name="Expander" Style="{StaticResource ExpandCollapseToggleStyle}" HorizontalAlignment="Left" ClickMode="Press" />
                                     <!--IsChecked="{Binding Path=IsSelected, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView, AncestorLevel=1}}"-->
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=FileName}" HorizontalAlignment="Left" FontFamily="Segoe UI Semibold" Foreground="#14b9d6"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=FileName}"  HorizontalAlignment="Left" FontFamily="Segoe UI Semibold" Foreground="#14b9d6" ></TextBlock>
                                 </StackPanel>
                                 <!--Visibility="{Binding ElementName=Expander, Path=IsChecked, Converter={StaticResource BoolToVis}}"
                                 IsChecked="{Binding Path=IsSelected, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView, AncestorLevel=1}}"-->
@@ -219,7 +219,7 @@
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal" Tag="{Binding Url}">
                                                     <TextBlock x:Name="txtBlockForUrl" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap"  Text="{Binding EncodingName}"/>
-                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" CommandParameter="{Binding Path=DataContext,  RelativeSource={RelativeSource FindAncestor, AncestorType=Grid, AncestorLevel=2}}" Content="SHARE VIDEO" FontFamily="Segoe UI Regular" Foreground="#FFF" Background="#323A45" FontSize="10" HorizontalAlignment="Right" Click="CopyToClipBoard_Click">
+                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" CommandParameter="{Binding Path=DataContext,  RelativeSource={RelativeSource FindAncestor, AncestorType=Grid, AncestorLevel=2}}" Content="SHARE VIDEO" FontFamily="Segoe UI Regular" Foreground="#323a45" Background="#9ea7b3" FontSize="10" HorizontalAlignment="Right" Click="CopyToClipBoard_Click">
                                                         <Button.Style>
                                                             <Style TargetType="{x:Type Button}">
                                                                 <Style.Triggers>
@@ -233,7 +233,7 @@
                                                             </Style>
                                                         </Button.Style>
                                                     </Button>
-                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" Content="PLAY VIDEO" FontFamily="Segoe UI Regular" Foreground="#FFF" Background="#323A45" FontSize="10" HorizontalAlignment="Right" Click="Preview_Click">
+                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" Content="PLAY VIDEO" FontFamily="Segoe UI Regular"  Foreground="#323a45" Background="#9ea7b3" FontSize="10" HorizontalAlignment="Right" Click="Preview_Click">
                                                         <Button.Style>
                                                             <Style TargetType="{x:Type Button}">
                                                                 <Style.Triggers>
@@ -255,7 +255,7 @@
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
                                     </ListView>
-                                    <StackPanel Grid.Row="2" Margin="0,5,0,0">
+                                    <StackPanel Grid.Row="2" Margin="0,12,0,0">
                                         <TextBlock Text="TAGS" Foreground="#9ea7b3" FontFamily="Segoe UI Semibold"></TextBlock>
                                         <TextBlock Margin="0,5,0,0" Text="{Binding Path=Tags, Converter={StaticResource TagConverter}}" Width="600" HorizontalAlignment="Left" TextWrapping="Wrap"></TextBlock>
                                     </StackPanel>
