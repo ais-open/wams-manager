@@ -9,6 +9,7 @@
 	Title="AssetLandingPage">
     
     <!-- GRID: HOLDS LOGO AND ABOUT BUTTON-->
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -47,7 +48,7 @@
         <!-- END: BREAD CRUMB-->
 
         <!-- START: TAB -->
-        <ScrollViewer Grid.Row="3" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="3" Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
 
             <Grid Grid.Row="3" Grid.Column="1">
             <mui:ModernTab Layout="List"  SelectedSource="../Tabs/AssetFiles.xaml">

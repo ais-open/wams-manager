@@ -8,7 +8,8 @@
 	Title="MediaServiceHome">
 
     <Grid>
-        <Grid x:Name="MediaDataGrid" >
+        <ScrollViewer Grid.Row="1" Grid.Column="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid x:Name="MediaDataGrid" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="Auto"/>
@@ -21,7 +22,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Image Style="{StaticResource ResourceKey=WAMSLogoStyle}"></Image>
-            <Button Grid.Row="0" Grid.Column="1" Click="Display_Settings" Style="{StaticResource ResourceKey=SettingsButtonStyle}" />
+            <Button Grid.Row="0" Grid.Column="1" Click="Display_Settings" Style="{StaticResource ResourceKey=SettingsButtonStyle}" Margin="0,22,179,22" />
 
             <Button Grid.Column="1" Grid.Row="0" Click="Display_About" Style="{StaticResource ResourceKey=AboutButtonStyle}"/>
 
@@ -78,7 +79,9 @@
                     </ToolTip>
                 </TextBlock.ToolTip>
                         </TextBlock>
+                
         </Grid>
+        </ScrollViewer>
         <Grid x:Name="LoadingMediaGrid" Grid.Row="0" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition/>

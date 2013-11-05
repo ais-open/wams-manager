@@ -390,6 +390,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
                 AboutWindow window = new AboutWindow();
                 window.WindowStartupLocation = WindowStartupLocation.CenterOwner; 
                 window.ShowDialog();
+               
             }
             catch (Exception exception)
             {

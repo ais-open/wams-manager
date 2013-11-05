@@ -181,9 +181,9 @@
                     <Setter.Value>
                         <ControlTemplate>
                             <Border Background="#FF1FBBA6" >
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" >
                                     <Image  Margin="8,10,0,10"  Source="/Ais.Internal.Dcm.ModernUIV2;component/Images/icons/icon-help.png" HorizontalAlignment="Left" OpacityMask="#FF322F2F"></Image>
-                                    <TextBlock Padding="0,0,5,0" Text="ABOUT WAMS" VerticalAlignment="Center" Margin="5" Foreground="#FFF" Style="{StaticResource ButtonTextSizeStyle}"></TextBlock>
+                                    <TextBlock Padding="0,0,10,0" Text="ABOUT AIS WAMS" VerticalAlignment="Center" Margin="5" Foreground="#FFF" Style="{StaticResource ButtonTextSizeStyle}"></TextBlock>
                                 </StackPanel>
                             </Border>
                         </ControlTemplate>
