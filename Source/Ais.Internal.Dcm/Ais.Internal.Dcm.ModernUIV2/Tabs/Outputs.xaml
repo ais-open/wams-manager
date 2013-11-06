@@ -219,7 +219,7 @@
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal" Tag="{Binding Url}">
                                                     <TextBlock x:Name="txtBlockForUrl" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap"  Text="{Binding EncodingName}"/>
-                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" CommandParameter="{Binding Path=DataContext,  RelativeSource={RelativeSource FindAncestor, AncestorType=Grid, AncestorLevel=2}}" Content="SHARE VIDEO" FontFamily="Segoe UI Regular" Foreground="#323a45" Background="#9ea7b3" FontSize="10" HorizontalAlignment="Right" Click="CopyToClipBoard_Click">
+                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" CommandParameter="{Binding Path=DataContext,  RelativeSource={RelativeSource FindAncestor, AncestorType=Grid, AncestorLevel=2}}"  Content="SHARE VIDEO" FontFamily="Segoe UI Regular" Foreground="#323a45" Background="#9ea7b3" FontSize="10" HorizontalAlignment="Right" Click="CopyToClipBoard_Click">
                                                         <Button.Style>
                                                             <Style TargetType="{x:Type Button}">
                                                                 <Style.Triggers>
@@ -233,7 +233,7 @@
                                                             </Style>
                                                         </Button.Style>
                                                     </Button>
-                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}" Content="PLAY VIDEO" FontFamily="Segoe UI Regular"  Foreground="#323a45" Background="#9ea7b3" FontSize="10" HorizontalAlignment="Right" Click="Preview_Click">
+                                                    <Button Margin="5,0,0,2" Padding="4" DataContext="{Binding}"  Content="PLAY VIDEO" FontFamily="Segoe UI Regular"  Foreground="#323a45" Background="#9ea7b3" FontSize="10" HorizontalAlignment="Right" Click="Preview_Click">
                                                         <Button.Style>
                                                             <Style TargetType="{x:Type Button}">
                                                                 <Style.Triggers>

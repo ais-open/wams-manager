@@ -343,6 +343,7 @@
     <Content Include="Images\icon-twitter.jpg" />
     <Content Include="Images\wams-mark.png" />
     <Content Include="Scripts\common-login.js" />
+    <Content Include="Scripts\oneSimpleTablePaging-1.0.js" />
     <Content Include="Scripts\script-loader.js" />
     <Content Include="Scripts\header.js" />
     <Content Include="Scripts\Footer.js" />

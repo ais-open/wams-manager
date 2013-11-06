@@ -16,6 +16,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using NLog;
+using System.Windows.Input;
 
 namespace Ais.Internal.Dcm.ModernUIV2.Tabs
 {
@@ -254,6 +255,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
         {
             try
             {
+                Button thisButton = sender as Button;
                 GroupedOutputViewModel file = GetModel(sender);
                 ThumbnailRollViewModel model = null;
                 string url = GetMediaUrl(sender);
@@ -266,6 +268,8 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                     }
                     ChooseThumbnailPopup dialog = new ChooseThumbnailPopup(url, model);
                     dialog.ShowDialog();
+                    FocusManager.SetFocusedElement(thisButton, null);
+                    Keyboard.ClearFocus();
                 }
             }
             catch (Exception ex)
@@ -322,6 +326,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
         {
             try
             {
+               
                 string curDir = Directory.GetCurrentDirectory();
                 string content = string.Empty;
                 StringBuilder output = new StringBuilder();
@@ -340,8 +345,12 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
 
         private void Preview_Click(object sender, RoutedEventArgs e)
         {
+            Button thisButton = sender as Button;
+            FocusManager.SetFocusedElement(thisButton, null);
+            Keyboard.ClearFocus();
             try
-            {
+            {   
+                
                 string file = GetMediaUrl(sender);
                 string url = string.Format("../Tabs/Viewer.xaml");
                 if (file != null)
@@ -359,13 +368,17 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                 }
                 PreviewWindow window = new PreviewWindow();
                 window.CloseButton.Content = "Close";
-                 window.Show();
+                window.Show();
+               
+                
             }
             catch (Exception ex)
             {
                 logger.LogException(LogLevel.Error, ex.Message, ex);
                 UIHelper.HandlerException(ex);
             }
+            FocusManager.SetFocusedElement(thisButton, null);
+            Keyboard.ClearFocus();
         } 
         #endregion
 

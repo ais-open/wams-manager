@@ -555,7 +555,9 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                     filePath = dlg.FileName;
                     LocalFilePath = filePath;
                     IsFileLocal = true;
-                    
+                    FocusManager.SetFocusedElement(Upload_Local, null);
+                    Keyboard.ClearFocus();
+                  
                     //UploadFileToAsset(filePath);
                 }
             }
@@ -1069,6 +1071,9 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                     }
                 }
                 TextTags.Text = string.Empty;
+                FocusManager.SetFocusedElement(Add_Tags, null);
+                Keyboard.ClearFocus();
+
             }
         }
 

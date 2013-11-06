@@ -130,9 +130,9 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
             }
             catch (Exception exception)
             {
-                string message = Literals.MESSAGE_ERROR_NAVIGATION_MEDIASERVICE_PAGE;
-                UIHelper.ShowMessage(message, Literals.MESSAGE_HEADER_ERROR, MessageBoxButton.OK);
-                logger.LogException(LogLevel.Error, message + exception.ToString(), exception);
+              //  string message = Literals.MESSAGE_ERROR_NAVIGATION_MEDIASERVICE_PAGE;
+              //  UIHelper.ShowMessage(message, Literals.MESSAGE_HEADER_ERROR, MessageBoxButton.OK);
+                logger.LogException(LogLevel.Error,  exception.ToString(), exception);
                 throw;
             }
         }
@@ -155,9 +155,11 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
 
         private void Display_Settings(object sender, RoutedEventArgs e)
         {
+            
             try
             {
                 LaunchSettingsWindow();
+
             }
             catch (Exception exception)
             {
@@ -173,7 +175,9 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
             {
                 window = new URLWindow();
                 window.URLChanged += MediaServiceHome_Loaded;
+                window.Owner = window.Parent;
                 window.ShowDialog();
+              
             }
             catch (Exception exception)
             {
