@@ -7,7 +7,7 @@
                     "<span class='icon-bar'></span>" +
                     "<span class='icon-bar'></span>" +
                 "</button>" +
-                "<div class='brand'><span>WAMS Tool</span><span>Management Portal</span></div>" +
+                "<div class='brand'><span>AIS WAMS</span><span>Management Portal</span></div>" +
                 "<div class='nav-collapse collapse'>" +
                     "<div class='pull-right'>" +
                         "<ul class='nav pull-right'>" +

@@ -40,10 +40,10 @@ namespace Ais.Internal.Dcm.Web.Controllers
             {
                 if (this.ModelState.IsValid)
                 {
-                    bool userValid = Membership.ValidateUser(model.UserName, model.Password);
+                    bool userValid = Membership.ValidateUser(model.UserName.ToLower(), model.Password);
                     if (userValid)
                     {
-                        FormsAuthentication.SetAuthCookie(model.UserName, false/*, model.RememberMe*/);
+                        FormsAuthentication.SetAuthCookie(model.UserName.ToLower(), false/*, model.RememberMe*/);
 
                         var ticketEncryptString = FormsAuthentication.Encrypt(new FormsAuthenticationTicket(0, model.UserName, DateTime.Now,
                                                                                   DateTime.Now.AddSeconds(30), false,
@@ -170,7 +170,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
             catch (Exception exp)
             {
                 this._loggerService.LogException("AccountController.CheckForUserLoggedInGet", exp);
-                return new { LoginStatus = false, user = string.Empty, message = "You should be logged in to view this page" };
+               return new { LoginStatus = false, user = string.Empty,  };
             }
         }
 
@@ -199,14 +199,14 @@ namespace Ais.Internal.Dcm.Web.Controllers
                
                 if (Regex.IsMatch(registerModel.UserName,@"^[a-zA-Z0-9_.]{3,40}$")==true)
                 {
-                    MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName);
+                    MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName.ToLower());
                     if (collection != null && collection.Count > 0)
                     {
                         return returnObj = new { userCreation = false, message = "User with this username already exists." };
                     }
                     else
                     {
-                        var user = Membership.CreateUser(string.Format("{0}@{1}", registerModel.UserName, domainName), registerModel.Password, domainName);
+                        var user = Membership.CreateUser(string.Format("{0}@{1}", registerModel.UserName.ToLower(), domainName), registerModel.Password, domainName);
                         returnObj = new { userCreation = true, message = "User created successfully." };
                     }
                 }
