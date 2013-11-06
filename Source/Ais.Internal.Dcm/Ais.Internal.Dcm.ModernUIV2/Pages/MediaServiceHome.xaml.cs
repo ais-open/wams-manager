@@ -175,7 +175,6 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
             {
                 window = new URLWindow();
                 window.URLChanged += MediaServiceHome_Loaded;
-                window.Owner = window.Parent;
                 window.ShowDialog();
               
             }
