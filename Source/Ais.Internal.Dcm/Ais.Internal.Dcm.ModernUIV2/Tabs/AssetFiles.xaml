@@ -111,7 +111,7 @@
                     <Border Grid.Row="1" BorderThickness="0" BorderBrush="#FF2D89EF" CornerRadius="1" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <Grid HorizontalAlignment="Left" Grid.Row="2" Height="100">
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-                                <ItemsControl x:Name="EncodingList" HorizontalAlignment="Left" ItemsSource="{Binding EncodingTypes}" ItemTemplate="{StaticResource EncodingDataTemplate}" Margin="0,50,0,0" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                                <ItemsControl x:Name="EncodingList" HorizontalAlignment="Left" ItemsSource="{Binding EncodingTypes}" ItemTemplate="{StaticResource EncodingDataTemplate}" Margin="0,50,0,0" Width="1000"  ScrollViewer.HorizontalScrollBarVisibility="Auto">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel Orientation="Horizontal" />
@@ -243,12 +243,16 @@
 
             <!-- Loading Screen Region -->
             <Grid  Grid.Row="3" x:Name="loading" VerticalAlignment="Center" Height="46"  Visibility="Visible" Margin="0,63">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition Width="19*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ProgressBar VerticalAlignment="Bottom" IsIndeterminate="True" Margin="0,0,0,3"/>
-                <TextBlock x:Name="WaitingControlMessage" Grid.Row="1" FontSize="16"  FontFamily="Segoe UI Semibold" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding WaitMessage, Mode=TwoWay}"/>
+                <ProgressBar VerticalAlignment="Bottom" IsIndeterminate="True" Margin="0,0,0,3" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="WaitingControlMessage" Grid.Row="1" FontSize="16"  FontFamily="Segoe UI Semibold" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding WaitMessage, Mode=TwoWay}" Grid.ColumnSpan="2"/>
             </Grid>
 
             <!-- Upload status of selected video files Region -->

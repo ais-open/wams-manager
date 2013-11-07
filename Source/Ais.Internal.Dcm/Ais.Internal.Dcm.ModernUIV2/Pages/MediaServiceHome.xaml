@@ -44,7 +44,7 @@
             <!-- END: SEARCH TEXT BOX -->
 
             <!-- START: LIST OF COLLECTIONS/MEDIA SERVICES-->
-            <ListBox Grid.Row="3" Grid.ColumnSpan="2"
+            <ListBox Grid.Row="3" Grid.ColumnSpan="2" Width="1300" Margin="0,5,5,5"
                      Style="{StaticResource ResourceKey=CollectionListStyle}"
                      ItemContainerStyle="{Binding Source={StaticResource ResourceKey=NoChromeListBoxItem}}"
                      BorderBrush="Transparent"
