@@ -30,6 +30,11 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
         {
             InitializeComponent();
             client = App.GetHttpClient();
+            //Timer to refresh the page 
+         //   DispatcherTimer timer = new DispatcherTimer();
+       //     timer.Interval = TimeSpan.FromSeconds(300);
+           // timer.Tick += new EventHandler(timer_Tick(count));
+            //timer.Start();
         }
         #endregion
 
@@ -90,6 +95,26 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+     /*   public async void timer_Tick(object sender, EventArgs e, int count)
+        {
+
+            try
+            {
+                if (count == 1)
+                {
+                    loading.Visibility = Visibility.Visible;
+                    VideoGrid.Visibility = Visibility.Collapsed;
+                    GroupedOutputFiles = null;
+                    Output_Loaded(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogException(LogLevel.Error, ex.Message, ex);
+                UIHelper.HandlerException(ex);
+            }
+        }
+        */
         #endregion
 
         #region Navigation Methods
@@ -169,7 +194,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
         #endregion
 
         #region Private Methods
-        private async void Output_Loaded(object sender, RoutedEventArgs e)
+        private async void Output_Loaded(object sender, EventArgs e)
         {
             try
             {

@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using BitlyDotNET.Implementations;
 
 namespace Ais.Internal.Dcm.ModernUIV2
 {
@@ -217,7 +218,8 @@ namespace Ais.Internal.Dcm.ModernUIV2
         {
             try
             {
-                Process.Start(new ProcessStartInfo(string.Format(FACEBOOK_SHARE_URL_FORMAT, e.Uri.AbsoluteUri)));
+               // string shortened = bitlyService.Shorten(e.Uri.AbsoluteUri);
+                Process.Start(new ProcessStartInfo(string.Format(FACEBOOK_SHARE_URL_FORMAT,e.Uri.AbsoluteUri)));
                 e.Handled = true;
             }
             catch (Exception exception)
