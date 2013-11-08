@@ -199,7 +199,7 @@
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" Margin="0,0,0,10" Grid.ColumnSpan="2" Orientation="Horizontal" >
+                                <StackPanel Grid.Column="0" Margin="0,0,0,10" Grid.ColumnSpan="2" Orientation="Horizontal"  >
                                     <ToggleButton x:Name="Expander" Style="{StaticResource ExpandCollapseToggleStyle}" HorizontalAlignment="Left" ClickMode="Press" />
                                     <!--IsChecked="{Binding Path=IsSelected, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView, AncestorLevel=1}}"-->
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=FileName}"  HorizontalAlignment="Left" FontFamily="Segoe UI Semibold" Foreground="#14b9d6" ></TextBlock>

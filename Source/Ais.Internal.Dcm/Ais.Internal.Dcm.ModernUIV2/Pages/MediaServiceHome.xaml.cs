@@ -175,6 +175,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
             {
                 window = new URLWindow();
                 window.URLChanged += MediaServiceHome_Loaded;
+                window.Owner = Application.Current.MainWindow;
                 window.ShowDialog();
               
             }
@@ -191,6 +192,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
             {
                 AboutWindow window = new AboutWindow();
                 window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                window.Owner = Application.Current.MainWindow;
                 window.ShowDialog();
             }
             catch (Exception exception)

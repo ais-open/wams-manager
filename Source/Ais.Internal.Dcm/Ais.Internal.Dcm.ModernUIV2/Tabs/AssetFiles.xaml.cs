@@ -575,6 +575,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
             var cloudWindow = new CloudUploadDialog(selectedAssetId);
             cloudWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             cloudWindow.AssetFileSelected += cloudWindow_AssetFileSelected;
+            cloudWindow.Owner = Application.Current.MainWindow;
             cloudWindow.ShowDialog();
 
             

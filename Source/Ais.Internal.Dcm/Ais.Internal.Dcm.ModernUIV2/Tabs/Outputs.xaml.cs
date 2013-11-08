@@ -292,6 +292,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                         model = new ThumbnailRollViewModel(file.Thumbnails, paging);
                     }
                     ChooseThumbnailPopup dialog = new ChooseThumbnailPopup(url, model);
+                    dialog.Owner = Application.Current.MainWindow;
                     dialog.ShowDialog();
                     FocusManager.SetFocusedElement(thisButton, null);
                     Keyboard.ClearFocus();
@@ -392,6 +393,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Tabs
                     }
                 }
                 PreviewWindow window = new PreviewWindow();
+                 window.Owner = Application.Current.MainWindow;
                 window.CloseButton.Content = "Close";
                 window.Show();
                

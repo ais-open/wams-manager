@@ -287,10 +287,12 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
 
         private void Display_About(object sender, RoutedEventArgs e)
         {
+            Home parentwindow;
             try
             {
                 AboutWindow window = new AboutWindow();
                 window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                window.Owner = Application.Current.MainWindow;
                 window.ShowDialog();
             }
             catch (Exception exception)
