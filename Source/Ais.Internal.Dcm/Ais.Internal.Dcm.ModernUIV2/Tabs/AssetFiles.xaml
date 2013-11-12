@@ -64,7 +64,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="CHOOSE VIDEO FILE TO PROCESS" Style="{StaticResource FileHeaderStyle}" Margin="0,15,0,30" Grid.RowSpan="2"/>
+                <TextBlock Text="CHOOSE VIDEO FILE TO PROCESS" Style="{StaticResource FileHeaderStyle}" Margin="0,10,0,30" Grid.RowSpan="2"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBox Width="370" IsReadOnly="True" Text="{Binding LocalFilePath}" Margin="0,21,5,-11"></TextBox>
                     <Button HorizontalAlignment="Left" HorizontalContentAlignment="Center" Content="FROM YOUR COMPUTER" Name="Upload_Local" Margin="5,21,5,-11" Padding="5" Click="LocalUpload_OnClick" Style="{StaticResource ButtonSizeStyle}" Foreground="#323a45" Background="#9ea7b3"></Button>
