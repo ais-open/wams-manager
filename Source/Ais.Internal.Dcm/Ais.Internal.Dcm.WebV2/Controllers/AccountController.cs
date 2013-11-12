@@ -199,7 +199,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
                
                 if (Regex.IsMatch(registerModel.UserName,@"^[a-zA-Z0-9_.]{3,40}$")==true)
                 {
-                    MembershipUserCollection collection = Membership.FindUsersByName(registerModel.UserName.ToLower());
+                    MembershipUserCollection collection = Membership.FindUsersByName(string.Format("{0}@{1}",registerModel.UserName.ToLower(),domainName ));
                     if (collection != null && collection.Count > 0)
                     {
                         return returnObj = new { userCreation = false, message = "User with this username already exists." };

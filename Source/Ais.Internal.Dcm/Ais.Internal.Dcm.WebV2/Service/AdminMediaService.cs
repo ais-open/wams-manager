@@ -9,6 +9,11 @@ using Ais.Internal.Dcm.Business;
 using Ais.Internal.Dcm.Web.Models;
 using Microsoft.WindowsAzure.Storage.Table;
 using AzurePatterns.Entity;
+using System.Text.RegularExpressions;
+using System.Net;
+using System.Windows.Forms;
+
+
 namespace Ais.Internal.Dcm.Web.Service
 {
     public class AdminMediaService : IAdminMediaService
@@ -157,6 +162,7 @@ namespace Ais.Internal.Dcm.Web.Service
         public bool AddMediaService(MediaServiceModel mediaService)
         {
             bool isSuccess = false;
+            string message = string.Empty;
             try
             {
                 if (mediaService == null)
@@ -164,9 +170,18 @@ namespace Ais.Internal.Dcm.Web.Service
                     isSuccess = false;
                 }
                 if (string.IsNullOrWhiteSpace(mediaService.AccountName) || string.IsNullOrWhiteSpace(mediaService.MediaServiceFriendlyName) || string.IsNullOrWhiteSpace(mediaService.PrimaryAccountKey))
-                {
-                    isSuccess = false;
+                {   isSuccess = false;
+                    
                 }
+               else if (Regex.IsMatch(mediaService.AccountName, @"^[a-z0-9]{3,24}$") == false)
+                {
+                   isSuccess = false;
+                   //loggerService.LogException("CreateMediaService: Regex mismatch");
+                    message = " Invalid Media Service Name";
+                    MessageBox.Show(message,"Error",MessageBoxButtons.OK);
+                    throw new InvalidOperationException("Invalid Media Service Name");                  
+                }
+            
                 var mediaEntity = new MediaServiceEntity
                 {
                     AccessKey = mediaService.PrimaryAccountKey,
@@ -174,6 +189,7 @@ namespace Ais.Internal.Dcm.Web.Service
                     RowKey = mediaService.AccountName,
                     PartitionKey = "Universal"
                 };
+              
                 var mediaRepository = metadataService.GetMediaServiceRepository();
                 mediaRepository.InsertOrMerge(mediaEntity);
                 isSuccess = true;

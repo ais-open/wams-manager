@@ -49,7 +49,7 @@
 
                 </StackPanel>
                 <!-- END: DELETE ALBUM/ASSET BUTTON-->
-                <ListBox  Style="{StaticResource ResourceKey=AlbumListStyle}"
+                <ListBox  Style="{StaticResource ResourceKey=AlbumListStyle}" Width="1200" Margin="-20,2,2,2"
                       ItemContainerStyle="{Binding Source={StaticResource ResourceKey=NoChromeListBoxItem}}"
                       Grid.Row="3" Grid.ColumnSpan="2" 
                       ItemsSource="{Binding Path=AssetList}" SelectionChanged="ListBox_SelectionChanged" />
