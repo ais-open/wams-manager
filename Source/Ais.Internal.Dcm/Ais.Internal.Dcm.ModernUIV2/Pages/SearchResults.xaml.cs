@@ -549,7 +549,7 @@ namespace Ais.Internal.Dcm.ModernUIV2.Pages
                 ShareViewWindow dialog = new ShareViewWindow();
                 Point buttonPosition = soureButton.PointToScreen(new Point(0, 0));
                 double adjustedX = Math.Min(buttonPosition.X + 100, this.ActualWidth);
-                double adjustedY = buttonPosition.Y - 300;
+                double adjustedY = buttonPosition.Y - 375;
                 dialog.Top = adjustedY;
                 dialog.Left = adjustedX;
                 dialog.Outputs = model.Outputs;
