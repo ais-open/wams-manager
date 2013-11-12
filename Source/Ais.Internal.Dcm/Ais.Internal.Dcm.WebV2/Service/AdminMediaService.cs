@@ -11,7 +11,7 @@ using Microsoft.WindowsAzure.Storage.Table;
 using AzurePatterns.Entity;
 using System.Text.RegularExpressions;
 using System.Net;
-using System.Windows.Forms;
+
 
 
 namespace Ais.Internal.Dcm.Web.Service
@@ -178,7 +178,7 @@ namespace Ais.Internal.Dcm.Web.Service
                    isSuccess = false;
                    //loggerService.LogException("CreateMediaService: Regex mismatch");
                     message = " Invalid Media Service Name";
-                    MessageBox.Show(message,"Error",MessageBoxButtons.OK);
+                   
                     throw new InvalidOperationException("Invalid Media Service Name");                  
                 }
             
