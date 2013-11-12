@@ -200,7 +200,7 @@
                 </Grid.RowDefinitions>
                 <!-- START: SEARCH RESULTS-->
                 <ListBox ItemsSource="{Binding}" BorderBrush="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
-                         ItemContainerStyle="{Binding Source={StaticResource ResourceKey=NoChromeListBoxItem}}" Height="400"
+                         ItemContainerStyle="{Binding Source={StaticResource ResourceKey=NoChromeListBoxItem}}"  Width="1000"
                          Style="{StaticResource ResourceKey=SearchResultTemplate}" Margin="10,0,0,30" Grid.Row="0" Grid.RowSpan="2" />
                 <!-- END: SEARCH RESULTS-->
 
