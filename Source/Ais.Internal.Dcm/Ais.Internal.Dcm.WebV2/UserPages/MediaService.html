@@ -43,19 +43,19 @@
                             <div class="control-group">
                                 <label class="control-label" for="inputMediaServiceName">Media Service</label>
                                 <div class="controls">
-                                    <input type="text" id="inputMediaServiceName" placeholder="Media Service Name" />
+                                    <input type="text" id="inputMediaServiceName" placeholder="Media Service Name" required ="required" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label" for="inputAccountKey">Primary Key</label>
                                 <div class="controls">
-                                    <input type="text" id="inputAccountKey" placeholder="Primary access key" />
+                                    <input type="text" id="inputAccountKey" placeholder="Primary access key" required ="required" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label" for="inputFriendlyName">Friendly Name</label>
                                 <div class="controls">
-                                    <input type="text" id="inputFriendlyName" placeholder="User friendly name" />
+                                    <input type="text" id="inputFriendlyName" placeholder="User friendly name"  required="required"/>
                                 </div>
                             </div>
 
@@ -67,10 +67,8 @@
 
                                 </div>
                             </div>
-                            <div class="alert alert-error invisible">
-                                <button type="button" class="close" onclick="$('.alert').addClass('invisible');">&times;</button>
-                                <strong>Error!</strong> All fields are required.
-                            </div>
+                           
+                            
                         </div>
                     </div>
 
@@ -126,9 +124,33 @@
         }
         function ValidateData() {
             if ($(inputFriendlyName).val() != '' && $(inputMediaServiceName).val() != '' && $(inputAccountKey).val() != '') {
+                var pattern = "^[a-z0-9]{3,24}$";
+                var re = new RegExp(pattern);
+                if (re.test($(inputMediaServiceName).val()) == false) {
+                    $.gritter.add({
+                        title: 'Error!',
+                        text: 'Invalid Media Service Name',
+                        sticky: false,
+                        time: 4000,
+                        before_close: function (e, manual_close) {
+                            // the manual_close param determined if they closed it by clicking the "x"
+                            //alert("I am a sticky called before it closes: I am passed the jQuery object for the Gritter element... \n" + e);
+                            window.location = "../UserPages/MediaService.html";
+                        }
+                    });
+                    return false;
+                }
                 return true;
             }
-            return false;
+            else {
+                $.gritter.add({
+                    title: 'Error!',
+                    text: 'Please fill all the values',
+                    sticky: false,
+                    time: 5000,
+                });
+                   return false;
+            } 
         }
 
         function EditMediaService(friendlyName, mediaServiceNAme, accountKey) {
