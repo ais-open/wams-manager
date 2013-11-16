@@ -131,12 +131,9 @@
                         title: 'Error!',
                         text: 'Invalid Media Service Name',
                         sticky: false,
-                        time: 4000,
-                        before_close: function (e, manual_close) {
-                            // the manual_close param determined if they closed it by clicking the "x"
-                            //alert("I am a sticky called before it closes: I am passed the jQuery object for the Gritter element... \n" + e);
-                            window.location = "../UserPages/MediaService.html";
-                        }
+                        time: 4000
+                       
+                        
                     });
                     return false;
                 }
