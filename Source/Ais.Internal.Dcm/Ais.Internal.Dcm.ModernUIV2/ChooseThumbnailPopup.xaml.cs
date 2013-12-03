@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using BitlyDotNET.Implementations;
+using BitlyDotNET.Interfaces;
 
 namespace Ais.Internal.Dcm.ModernUIV2
 {
@@ -218,9 +219,14 @@ namespace Ais.Internal.Dcm.ModernUIV2
         {
             try
             {
-               // string shortened = bitlyService.Shorten(e.Uri.AbsoluteUri);
-                Process.Start(new ProcessStartInfo(string.Format(FACEBOOK_SHARE_URL_FORMAT,e.Uri.AbsoluteUri)));
-                e.Handled = true;
+                IBitlyService s = new BitlyService("mohitmc2", "R_1498f566106323b6dcd269d7aec595f6");
+
+                string shortened = s.Shorten(e.Uri.AbsoluteUri.ToString());
+                if (shortened != null)
+                {
+                    Process.Start(new ProcessStartInfo(string.Format(FACEBOOK_SHARE_URL_FORMAT, shortened)));
+                    e.Handled = true;
+                }
             }
             catch (Exception exception)
             {
@@ -233,9 +239,15 @@ namespace Ais.Internal.Dcm.ModernUIV2
         private void Twitter_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             try
-            {
-                Process.Start(new ProcessStartInfo(string.Format(TWITTER_SHARE_URL_FORMAT, e.Uri.AbsoluteUri)));
-                e.Handled = true;
+            { 
+                IBitlyService s = new BitlyService("mohitmc2", "R_1498f566106323b6dcd269d7aec595f6");
+
+                string shortened = s.Shorten(e.Uri.AbsoluteUri.ToString());
+                if (shortened != null)
+                {
+                    Process.Start(new ProcessStartInfo(string.Format(TWITTER_SHARE_URL_FORMAT, shortened)));
+                    e.Handled = true;
+                }
             }
             catch (Exception exception)
             {
