@@ -60,6 +60,7 @@ function checkForUserAdmin() {
                 else { }
             }
             $("#loggedUser").text(data.user);
+            $("#domain").text(data.domainName);
         }).error(function (request, status, error) {
             alert(request.responseText);
         });

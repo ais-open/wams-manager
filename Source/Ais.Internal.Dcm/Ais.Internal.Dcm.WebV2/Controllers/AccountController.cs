@@ -134,21 +134,25 @@ namespace Ais.Internal.Dcm.Web.Controllers
                 var userNameTicket = HttpContext.Current.Request.Cookies["userNameTicket"].Value;
                 var ticket = FormsAuthentication.Decrypt(userNameTicket);
                 var userName = ticket.Name;
+                var rdr = new System.Configuration.AppSettingsReader();
+                string emailID = (string)rdr.GetValue("customer_append", typeof(string));
+                string domainName =string.Format("@{0}", emailID.Split('@')[1]);
                 if (!string.IsNullOrWhiteSpace(userName))
                 {
                     if (!Roles.GetRolesForUser(userName).Contains(Constants.ADMIN_ROLE))
                     {
                         return
-                            new { user = userName, authorized = false, message = "You are not allowed to create user." };
+                            new { user = userName, authorized = false, message = "You are not allowed to create user.",domainName=domainName };
                     }
-                    return new { user = userName, authorized = true, message = string.Empty };
+                    return new { user = userName, authorized = true, message = string.Empty, domainName = domainName };
                 }
-                return new { user = "Invalid", authorized = false, message = "You should be logged in to view this page" };
+                return new { user = "Invalid", authorized = false, message = "You should be logged in to view this page", domainName = domainName };
+
             }
             catch (Exception exp)
             {
                 this._loggerService.LogException("AccountController.AuthorizeGet", exp);
-                return new { user = "Invalid", authorized = false, message = "You should be logged in to view this page" };
+                return new { user = "Invalid", authorized = false, message = "You should be logged in to view this page" ,domainName=string.Empty};
             }
         }
 

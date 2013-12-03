@@ -13,7 +13,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
         [BasicAuthentication]
         public ActionResult Index()
         {
-            return Redirect("/UserPages/Home.html");
+            return Redirect("/UserPages/UserLogin.html");
         }
     }
 }
