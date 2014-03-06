@@ -18,7 +18,7 @@ namespace Ais.Internal.Dcm.Web.Filters
     public class BasicAuthenticationAttribute : System.Web.Http.Filters.ActionFilterAttribute
     {
         public override void OnActionExecuting(System.Web.Http.Controllers.HttpActionContext actionContext)
-        {
+        {   //
             ILoggerService loggerService = new LoggerService();
             if (actionContext.Request.Headers.Authorization == null)
             {
