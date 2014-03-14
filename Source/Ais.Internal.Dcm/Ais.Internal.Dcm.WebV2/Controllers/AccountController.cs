@@ -332,7 +332,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
         [HttpGet]
         [Authorize(Roles = Constants.ADMIN_ROLE)]
         [ActionName("DeleteUser")]
-        public bool DeleteUser(string userName)
+       /* public bool DeleteUser(string userName)
         {
             bool isSuccess = false;
             try
@@ -347,7 +347,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
             }
             return isSuccess;
         }
-
+       */
         private bool ValidateUser(string userName, string password)
         {
             return Membership.ValidateUser(userName, password);
