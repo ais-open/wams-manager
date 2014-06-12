@@ -199,7 +199,7 @@ namespace Ais.Internal.Dcm.ModernUIV2
         {
             try
             {
-                IBitlyService s = new BitlyService("mohitmc2", "R_1498f566106323b6dcd269d7aec595f6");
+                IBitlyService s = new BitlyService(Config.BitlyUsername, Config.BitlyKey);
 
                 string shortened = s.Shorten(e.Uri.AbsoluteUri.ToString());
                 if (shortened != null)
@@ -221,7 +221,7 @@ namespace Ais.Internal.Dcm.ModernUIV2
         {
             try
             {
-                IBitlyService s = new BitlyService("mohitmc2", "R_1498f566106323b6dcd269d7aec595f6");
+                IBitlyService s = new BitlyService(Config.BitlyUsername, Config.BitlyKey);
 
                 string shortened = s.Shorten(e.Uri.AbsoluteUri.ToString());
                 if (shortened != null)

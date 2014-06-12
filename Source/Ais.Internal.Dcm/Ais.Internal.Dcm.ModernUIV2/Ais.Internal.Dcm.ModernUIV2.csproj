@@ -157,6 +157,7 @@
     <Compile Include="AssetWindow.xaml.cs">
       <DependentUpon>AssetWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Config.cs" />
     <Compile Include="Common\UploadFileEventArgs.cs" />
     <Compile Include="Common\UploadFileStatusInfo.cs" />
     <Compile Include="Common\IconHelper.cs" />
