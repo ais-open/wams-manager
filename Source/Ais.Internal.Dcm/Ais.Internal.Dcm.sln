@@ -20,6 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ais.Internal.Dcm.Webv2", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.lib", "External.lib", "{BB13EB59-B50E-4EFA-8306-CF0FD4B2A9BD}"
 	ProjectSection(SolutionItems) = preProject
+		C:\Users\Devi Priya\Downloads\DigitalContentManagementDeploy\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\Ais.Internal.Dcm.ModernUIV2\BitlyDotNET.dll = C:\Users\Devi Priya\Downloads\DigitalContentManagementDeploy\DigitalContentManagementDeploy\Source\Ais.Internal.Dcm\Ais.Internal.Dcm.ModernUIV2\BitlyDotNET.dll
 		Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll = Ais.Internal.Dcm.ModernUIV2\bin\Release\FirstFloor.ModernUI.dll
 		External.lib\Microsoft.WindowsAzure.Storage.dll = External.lib\Microsoft.WindowsAzure.Storage.dll
 		External.lib\Microsoft.WindowsAzure.StorageClient.dll = External.lib\Microsoft.WindowsAzure.StorageClient.dll
