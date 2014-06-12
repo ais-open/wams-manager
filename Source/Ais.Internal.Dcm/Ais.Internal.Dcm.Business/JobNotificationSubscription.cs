@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ais.Internal.Dcm.Business
+﻿namespace Ais.Internal.Dcm.Business
 {
     public class JobNotificationSubscription
     {

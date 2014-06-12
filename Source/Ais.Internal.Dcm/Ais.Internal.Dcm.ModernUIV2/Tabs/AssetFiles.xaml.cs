@@ -4,7 +4,6 @@ using Ais.Internal.Dcm.ModernUIV2.ViewModels;
 using FirstFloor.ModernUI.Windows;
 using FirstFloor.ModernUI.Windows.Navigation;
 using Microsoft.Win32;
-using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,15 +11,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Threading;
 using NLog;
 using FirstFloor.ModernUI.Windows.Controls;
-using Ais.Internal.Dcm.ModernUIV2.Controls;
 
 namespace Ais.Internal.Dcm.ModernUIV2.Tabs
 {

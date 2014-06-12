@@ -81,7 +81,6 @@
     <Compile Include="MediaServiceContext.cs" />
     <Compile Include="MediaTask.cs" />
     <Compile Include="MediaServiceInfo.cs" />
-    <Compile Include="MobileDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WAMSException.cs" />
   </ItemGroup>

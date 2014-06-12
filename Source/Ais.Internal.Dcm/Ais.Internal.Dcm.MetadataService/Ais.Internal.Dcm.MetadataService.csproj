@@ -80,7 +80,6 @@
     <Compile Include="Entity\TagInfo.cs" />
     <Compile Include="Entity\UnCommitedDataEntity.cs" />
     <Compile Include="Entity\UnCommittedEntityType.cs" />
-    <Compile Include="EntityRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AssetFileRepository.cs" />
     <Compile Include="Repository\AssetRepository.cs" />

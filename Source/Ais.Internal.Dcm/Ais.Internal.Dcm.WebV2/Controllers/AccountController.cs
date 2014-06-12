@@ -1,6 +1,5 @@
 ﻿using Ais.Internal.Dcm.Web.Models;
 using Ais.Internal.Dcm.Web.Service;
-//using Microsoft.Samples.ServiceHosting.AspProviders;
 using System;
 using System.Collections.Generic;
 using System.Linq;

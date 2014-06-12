@@ -1,15 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using Ais.Internal.Dcm.ModernUIV2.Common;
-using System.Configuration;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
 using Ais.Internal.Dcm.ModernUIV2.ViewModels;
 
 namespace Ais.Internal.Dcm.ModernUIV2

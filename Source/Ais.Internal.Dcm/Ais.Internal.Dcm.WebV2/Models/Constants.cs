@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Ais.Internal.Dcm.Web.Models
+﻿namespace Ais.Internal.Dcm.Web.Models
 {
     public class Constants
     {

@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Hosting;
 using Ais.Internal.Dcm.Web.Controllers;
 using Ais.Internal.Dcm.Web.Models;
 using Ais.Internal.Dcm.Web.Service;

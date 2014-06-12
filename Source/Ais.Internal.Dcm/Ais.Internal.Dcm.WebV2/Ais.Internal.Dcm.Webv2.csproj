@@ -224,7 +224,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IMetaDataService.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\EncodingTypeViewModel.cs" />

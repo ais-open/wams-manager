@@ -1,12 +1,10 @@
 ﻿using Ais.Internal.Dcm.ModernUIV2.Common;
 using Ais.Internal.Dcm.ModernUIV2.ViewModels;
 using FirstFloor.ModernUI.Windows;
-using FirstFloor.ModernUI.Windows.Controls;
 using FirstFloor.ModernUI.Windows.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Http;

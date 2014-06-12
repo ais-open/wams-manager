@@ -1,11 +1,7 @@
 ﻿using Ais.Internal.Dcm.Business;
 using Ais.Internal.Dcm.Web.Models;
 using AzurePatterns.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ais.Internal.Dcm.Web.Service
 {

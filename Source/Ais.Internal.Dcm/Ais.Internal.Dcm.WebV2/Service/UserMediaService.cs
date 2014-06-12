@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using Ais.Internal.Dcm.Business;
 using Ais.Internal.Dcm.Web.Models;
 using AzurePatterns.Entity;
