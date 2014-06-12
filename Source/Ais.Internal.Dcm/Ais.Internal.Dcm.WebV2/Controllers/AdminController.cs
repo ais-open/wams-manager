@@ -33,7 +33,11 @@ namespace Ais.Internal.Dcm.Web.Controllers
                 throw;
             }
         }
-
+        /// <summary>
+        /// Returns a list of Encoding types.
+        /// </summary>
+        /// <param name="mediaServiceName"></param>
+        /// <returns></returns>
         [HttpGet]
         public List<EncodingTypeModel> GetEncodingTypes(string mediaServiceName)
         {
@@ -50,7 +54,12 @@ namespace Ais.Internal.Dcm.Web.Controllers
             }
             return encodingTypes;
         }
-
+        
+        /// <summary>
+        /// Returns a list of All Media Services.
+        /// </summary>
+        /// <param name="clientKey"></param>
+        /// <returns></returns>
         [HttpGet]
         public List<MediaServiceModel> GetAllMediaServices(string clientKey)
         {
@@ -68,7 +77,11 @@ namespace Ais.Internal.Dcm.Web.Controllers
             }
             return mServices;
         }
-
+        /// <summary>
+        /// Creating a new Encoding type.
+        /// </summary>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         [HttpPost]
         public HttpResponseMessage CreateEncodingType(EncodingTypeModel encoding)
         {
@@ -95,6 +108,11 @@ namespace Ais.Internal.Dcm.Web.Controllers
             return new HttpResponseMessage(code);
         }
 
+        /// <summary>
+        /// Deleting an endoing type from the list.
+        /// </summary>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         [HttpDelete]
         public HttpResponseMessage DeleteEncodingType(EncodingTypeModel encoding)
         {
@@ -121,6 +139,11 @@ namespace Ais.Internal.Dcm.Web.Controllers
             return new HttpResponseMessage(code);
         }
 
+        /// <summary>
+        /// Checks if Media service is successfully created or not.
+        /// </summary>
+        /// <param name="mediaService"></param>
+        /// <returns></returns>
         [HttpPost]
         public HttpResponseMessage CreateMediaService(MediaServiceModel mediaService)
         {
@@ -147,6 +170,11 @@ namespace Ais.Internal.Dcm.Web.Controllers
             return new HttpResponseMessage(code);
         }
 
+        /// <summary>
+        /// Checks if Media Service is sucessfully deleted or not.
+        /// </summary>
+        /// <param name="mediaService"></param>
+        /// <returns></returns>
         [HttpDelete]
         public HttpResponseMessage DeleteMediaService(MediaServiceModel mediaService)
         {

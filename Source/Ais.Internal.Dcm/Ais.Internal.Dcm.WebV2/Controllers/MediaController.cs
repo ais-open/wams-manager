@@ -25,7 +25,7 @@ namespace Ais.Internal.Dcm.Web.Controllers
         ILoggerService logger = null;
         IUserMediaService mediaServingService = null;
 
-
+      
         public MediaController(ILoggerService loggerService, IUserMediaService mediaServingService)
         {
             try

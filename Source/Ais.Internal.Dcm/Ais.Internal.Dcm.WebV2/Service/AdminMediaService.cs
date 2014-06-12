@@ -20,12 +20,17 @@ namespace Ais.Internal.Dcm.Web.Service
     {
         IMetadataService metadataService = null;
         ILoggerService loggerService = null;
+   
         public AdminMediaService(IMetadataService metadataRepositoryService,ILoggerService logger)
         {
             this.metadataService = metadataRepositoryService;
             this.loggerService = logger;
         }
-
+        /// <summary>
+        /// Returns a list of encoding types
+        /// </summary>
+        /// <param name="mediaServiceName"></param>
+        /// <returns></returns>
         public List<EncodingTypeModel> GetEncodingTypes(string mediaServiceName)
         {
             List<EncodingTypeModel> encodingTypes = new List<EncodingTypeModel>();
@@ -66,6 +71,11 @@ namespace Ais.Internal.Dcm.Web.Service
             return encodingTypes;
         }
 
+        /// <summary>
+        /// Returns a list of Media Services
+        /// </summary>
+        /// <param name="clientKey"></param>
+        /// <returns></returns>
         public List<MediaServiceModel> GetMediaServices(string clientKey)
         {
             List<MediaServiceModel> mServices = null;
@@ -102,7 +112,11 @@ namespace Ais.Internal.Dcm.Web.Service
             }
             return mServices;
         }
-
+        /// <summary>
+        /// Returns True if sucesfully added the Encoding type
+        /// </summary>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         public bool AddEncodingType(EncodingTypeModel encoding)
         {
             bool isSuccess = false;
@@ -129,6 +143,11 @@ namespace Ais.Internal.Dcm.Web.Service
             return isSuccess;
         }
 
+        /// <summary>
+        /// Returns True if successfully Deleted the Encoding types
+        /// </summary>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         public bool RemoveEncodingType(EncodingTypeModel encoding)
         {
             bool isSuccess = false;
@@ -159,6 +178,11 @@ namespace Ais.Internal.Dcm.Web.Service
             return isSuccess;
         }
 
+        /// <summary>
+        /// Returns True if successfully added the media service to the list.
+        /// </summary>
+        /// <param name="mediaService"></param>
+        /// <returns></returns>
         public bool AddMediaService(MediaServiceModel mediaService)
         {
             bool isSuccess = false;
@@ -176,10 +200,8 @@ namespace Ais.Internal.Dcm.Web.Service
                else if (Regex.IsMatch(mediaService.AccountName, @"^[a-z0-9]{3,24}$") == false)
                 {
                    isSuccess = false;
-                   //loggerService.LogException("CreateMediaService: Regex mismatch");
-                    message = " Invalid Media Service Name";
-                   
-                    throw new InvalidOperationException("Invalid Media Service Name");                  
+                   message = " Invalid Media Service Name";
+                   throw new InvalidOperationException("Invalid Media Service Name");                  
                 }
             
                 var mediaEntity = new MediaServiceEntity
@@ -204,6 +226,11 @@ namespace Ais.Internal.Dcm.Web.Service
             return isSuccess;
         }
 
+        /// <summary>
+        /// Returns True if successfully removed the media service from the list.
+        /// </summary>
+        /// <param name="mediaService"></param>
+        /// <returns></returns>
         public bool RemoveMediaService(MediaServiceModel mediaService)
         {
             bool isSuccess = false;

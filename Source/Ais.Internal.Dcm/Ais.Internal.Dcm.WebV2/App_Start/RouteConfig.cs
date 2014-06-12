@@ -22,7 +22,7 @@ namespace Ais.Internal.Dcm.Web
                 name: "Api",
                 url: "api/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                //defaults: new { controller = "Admin", action = "Get", id = UrlParameter.Optional }
+                
             );
             routes.IgnoreRoute("UserPages/{*path}");
         }
