@@ -1,14 +1,7 @@
-﻿using Ais.Internal.Dcm.Business;
-using Ais.Internal.Dcm.Web.Models;
+﻿using Ais.Internal.Dcm.Web.Models;
 using Ais.Internal.Dcm.Web.Service;
-using AzurePatterns.Entity;
-using AzurePatterns.Repository;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;

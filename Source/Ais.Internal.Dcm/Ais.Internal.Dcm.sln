@@ -22,7 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External.lib", "External.li
 	ProjectSection(SolutionItems) = preProject
 		External.lib\BitlyDotNET.dll = External.lib\BitlyDotNET.dll
 		External.lib\FirstFloor.ModernUI.dll = External.lib\FirstFloor.ModernUI.dll
-		External.lib\Microsoft.WindowsAzure.Storage.dll = External.lib\Microsoft.WindowsAzure.Storage.dll
 		External.lib\Microsoft.WindowsAzure.StorageClient.dll = External.lib\Microsoft.WindowsAzure.StorageClient.dll
 	EndProjectSection
 EndProject
