@@ -3,8 +3,8 @@ wams-manager
 ------------
 This readme describes the steps for setting up WAMS Manager, and how to use this application:
 
-1. Create an Azure website (refer [here](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/))
-2. Create an Azure Storage (refer [here] (http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/))
+1. Create an Azure website ([click here](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/))
+2. Create an Azure Storage ([click here] (http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/))
 3. Open the __Source/Ais.Internal.Dcm/Ais.Internal.Dcm.sln__ solution, and goto __web.config__ file of the __Ais.Internal.Dcm.WebV2__ project. Make the following changes to this web.config file:
 
   * _MetadataStorageAccountName_  - Azure storage account name, you created in Step-2 above.
