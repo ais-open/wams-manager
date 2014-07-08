@@ -12,7 +12,7 @@ This readme describes the steps for setting up WAMS Manager, and how to use this
   * _DefaultAdminUsername_        - WAMS Manager Administrator username.
   * _DefaultAdminPassword_        - WAMS Manager Administrator password.
   * _DataConnectionString_        - Replace the _AccountName_ and _AccountKey_ with the Storage Account Name and Storage Key (obtained in Step 2 above) in the connection string.
-  * **Note**: section of the web.config file that needs to be updated as above instructions are copied below for reference:  
+  * **Note**: section of the _web.config_ file that needs to be updated as shown above is copied below for reference:  
 `````
 <!-- Storage Specific Settings-->     
 <add key="MetadataStorageAccountName" value="storage_account_name_here" />     
@@ -23,7 +23,7 @@ This readme describes the steps for setting up WAMS Manager, and how to use this
 ````
 
 4. Proceed to the Project __Ais.Internal.Dcm.ModernUIV2__, and open __Common/Config.cs__
-5. Replace the _BitlyUsername_ and _BitlyKey_ with your bit.ly credentials.
+5. Replace the _BitlyUsername_ and _BitlyKey_ with your _bit.ly_ credentials.
 6. Build the solution and publish the website using the Publishing Profile of the azure website created in Step-1 above.
 7. Visit the website created in Step-1, and login with the _DefaultAdminUsername_ and _DefaultAdminPassword_ you specified for the _web.config_ file in Step-3.
 8. Follow instructions in **Docs/WAMSAdminPortal.pdf** to complete the setup of the application.
